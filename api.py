@@ -8,6 +8,7 @@ url = "https://petstore.swagger.io/v2"
 
 class Pet:
     """Class Pet Methods"""
+
     def __init__(self):
         self.url = url
 
