@@ -1,6 +1,5 @@
 from api import Pet
 from api_data import *
-import os
 import pytest
 
 pet = Pet()
