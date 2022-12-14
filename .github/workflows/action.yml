@@ -35,10 +35,6 @@ jobs:
           extra-black-options: ". -S"
           extra-mypy-options: ""
           extra-isort-options: ""
-      - name: install Chrome
-        uses: browser-actions/setup-chrome@latest
-      - name: check Chrome version
-        run: chrome --version
       - name: Install Python dependencies
         uses: py-actions/py-dependency-install@v3
         with:
