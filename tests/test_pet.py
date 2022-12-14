@@ -1,74 +1,75 @@
-from api import Pet
 import pytest
+import allure
+from data.api_methods import Pet, Store, User
+from data.api_data import RequestData as d
 
 
-id = 879
-headers = {"accept": "application/json", "Content-Type": "application/json"}
-headers_mult = {"accept": "application/json", "Content-Type": "multipart/form-data"}
-data = {"id": 879, "name": "Anfisa", "status": "available"}
-update_data = {"name": "Murzik", "status": "sold"}
-update_data_2 = {"id": 879, "name": "Barsik", "status": "sold"}
-params = {"status": "available"}
 
-pet = Pet()
+@allure.epic("US_001.00.00 | Pet > Everything about your Pets")
+class TestPet:
+    pet = Pet()
 
-""" You can run all tests at once by selecting a file
-pytest -s -v tests/tests_pet.py """
+    @allure.feature("TS_001.01.00 |  Uploads an image")
+    @allure.story("TC_001.01.01")
+    def test_same(self):
+        response = self.pet.post_upload_image()
+        print(response.status_code)
+        print(response.json_data)
 
+    @allure.feature("TC_001.02.01  | Add a new pet")
+    @allure.story("TC_001.02.01.01")
+    def test(self):
+        response = self.pet.post_add_a_new_pet()
+        print(response.status_code)
+        assert "id" in response.json_data.keys()
+        print(response.json_data["id"])
+        print(response.json_data["name"])
+        print(response.headers)
 
-def test_post_add_new_pet():
-    status, result = pet.post_add_new_pet(data, headers)
-    assert status == 200
-    assert result["name"] == data["name"]
-    print(result["name"])
+    def test_create_update_delete(self):
+        response = self.pet.post_add_a_new_pet()
+        pet_id = response.json_data["id"]
+        name = response.json_data["name"]
+        json = d.data2
+        json['id'] = pet_id
+        response = self.pet.put_update_pet(json)
+        new_name = response.json_data["name"]
+        response = self.pet.get_find_pet_by_id(path=pet_id)
+        assert name != new_name
+        response = self.pet.delete_pet_by_id(path=pet_id)
+        response = self.pet.get_find_pet_by_id(path=pet_id)
+        assert response.status_code == 404
+        print(response.json_data.get("message"))
 
+    @allure.feature("TC_001.02.02  | Update an existing pet")
+    @allure.story("TC_001.02.01.01")
+    def test_1(self):
+        response = self.pet.put_update_pet(json=d.data2)
 
-def test_get_pet_valid_id():
-    status, result = pet.get_pet_by_id(id)
-    assert status == 200
-    print(result)
-
-
-@pytest.mark.parametrize(
-    "params",
-    ["", "available", "pending", "sold"],
-    ids=["empty", "available", "pending", "sold"],
-)
-def test_get_pet_valid_status(params):
-    """Parameterization is used here, 4 tests will run"""
-    status, result = pet.get_pet_by_status(params=params)
-    assert status == 200
-    print(result)
-
-
-def test_post_update_pet():
-    status, result = pet.post_update_pet(id, data=update_data)
-    assert status == 200
-    status, result = pet.get_pet_by_id(id)
-    assert result["name"] == update_data["name"]
-    print(result["name"])
-
-
-def test_put_update_pet():
-    status, result = pet.put_update_pet(update_data_2, headers)
-    assert status == 200
-    status, result = pet.get_pet_by_id(id)
-    assert result["name"] == update_data_2["name"]
-    print(result["name"])
+    # @pytest.mark.parametrize("params")
+    def test_2(self):
+        response = self.pet.get_find_by_status()
+        print(response.status_code)
+        print(response.text)
 
 
-def test_delete_pet():
-    status, result = pet.delete_pet(id, headers)
-    assert status == 200
-    assert int(result["message"]) == id
-    status, result = pet.get_pet_by_id(id)
-    assert status == 404
+@allure.epic("US_002.00.00 | Store > Access to Petstore orders")
+class TestStore:
+    store = Store()
+
+    @allure.feature("TS_002.03.00   | Returns pet inventories by status")
+    @allure.story("TC_001.02.01.01")
+    def test_return(self):
+        response = self.store.get_return_pet_inventory_by_status()
+        available = response.json_data['available']
+        print(f'Found {available} available pets')
 
 
-"""Here we will fix the test when we figure out how to send the file"""
-# def test_uploads_image(pet_photo='images/cat1.jpg'):
-#     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
-#     headers = headers_mult
-#     status, result = pet.post_uploads_image(id, pet_photo, headers)
-#     assert status == 200
-#     print(result["message"])
+@allure.epic("US_003.00.00 | User > Operations about user")
+class TestUser:
+    user = User()
+
+    @allure.feature("TS_003.03.00   | ")
+    @allure.story("TC_001.02.01.01")
+    def test_return(self):
+        response = self.user.post_create_list_users_array()
