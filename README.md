@@ -1,10 +1,12 @@
 Automation REST API testing project on Python
 
+[![API tests](https://github.com/ivanovajulika/Api_Petstore/actions/workflows/action.yml/badge.svg)](https://github.com/ivanovajulika/Api_Petstore/actions/workflows/action.yml)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ---
 #  Swagger Petstore
 
 [Api documentation]👉
-[<img src="https://github.com/LadyginaElena/API_testing/raw/main/picture/Swagger.jpg" width="200" height="150">](https://petstore.swagger.io/)
+[<img src="https://github.com/ivanovajulika/Api_Petstore/raw/main/picture/Swagger.jpg" alt='Swagger' width="200" height="150">](https://petstore.swagger.io/)
 [OUR]👉
 [<img src="https://logosmarken.com/wp-content/uploads/2021/03/Trello-Logo-650x366.png" alt='Trello' width="115" height="70">](https://trello.com/b/6n6e0r1L/psevdokodapip)
 
