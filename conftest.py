@@ -9,8 +9,18 @@ def random_id():
 
 
 @pytest.fixture
+def random_order_id():
+    return random.randrange(1, 10)
+
+
+@pytest.fixture
+def order_id():
+    return 5
+
+
+@pytest.fixture
 def id():
-    return 8888
+    return 888
 
 
 @pytest.fixture
