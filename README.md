@@ -30,13 +30,13 @@ ___
 
 ### **pytest-xdist**
 
-##### *Запускает несколько тестов одновременно* 
+##### *Runs multiple tests at the same time* 
 
     pytest -n auto OR pytest -n 5( any number)
  
 ___
 ## ALLURE <a name="some-allure"></a>
-#### WEB с дополнительной информацией &middot;[![WEB-SITE](https://img.shields.io/badge/allure-website-brightgreen.svg?style=flat-square)](https://docs.qameta.io/allure/#_pytest)
+#### Website with more information &middot;[![WEB-SITE](https://img.shields.io/badge/allure-website-brightgreen.svg?style=flat-square)](https://docs.qameta.io/allure/#_pytest)
 
 ### ***Installation:***
     pip install allure-pytest
@@ -44,13 +44,13 @@ ___
   
 ### ***1. Create allure:***
   
-###### Соберёт отчеты по всем тестам:
+###### Collect reports for all tests:
   
     pytest alluredir=allure-results
   
-###### Соберёт отчет по указанному тесту:
+###### Generates a report for the specified test:
   
-    pytest имя теста alluredir=allure-results
+    pytest test_name alluredir=allure-results
   
 ### ***2. Generates a report and opens it in a browser::***
      
@@ -58,10 +58,10 @@ ___
       
 ### ***3. Report generated for allure-report:***
   
-    allure generate <директория где лежит отчет>
+    allure generate <allure-results>
   
 ### ***4. Create single HTML report:***<a name="some-allure-html-file"></a>
--создает файл с отчетом `complete.html`(можно делиться с другими) 
+-creates a report file`complete.html`(can be shared with others) 
   
     allure-combine ./allure-report
   
