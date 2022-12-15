@@ -54,4 +54,3 @@ def delete_order(order_id, headers):
     print(result["message"])
     status, result = store.get_order_by_id(order_id)
     assert status == 404
-
