@@ -1,5 +1,6 @@
 from data.api_request import APIRequest
 from data.api_data import RequestData as d
+import pytest
 
 
 class Pet(APIRequest):
@@ -26,8 +27,9 @@ class Pet(APIRequest):
     def put_update_pet(self, json):
         return self.put(self.endpoint, json)
 
-    def get_find_by_status(self, path="findByStatus", params=params):
-        return self.get(self.endpoint, path, params)
+    @pytest.mark.parametrize('pet_status', ['available', 'pendind', 'sold']
+    def get_find_by_status(self, path="findByStatus", pet_status)
+        return self.get(self.endpoint, path,  params={"status": pet_status})
 
     def get_find_pet_by_id(self, path=f"/{d.random_id}"):
         return self.get(self.endpoint, path)
