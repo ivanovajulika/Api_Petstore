@@ -1,6 +1,5 @@
 import requests
 import json
-import allure
 
 # from requests_toolbelt.multipart.encoder import MultipartEncoder
 

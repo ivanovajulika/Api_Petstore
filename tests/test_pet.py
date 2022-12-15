@@ -86,7 +86,8 @@ def test_delete_pet(id, random_name, headers):
 # def test_upload_image():
 #     file = {
 #         'additionalMetadata': 'new photo',
-#         'file': 'https://media.istockphoto.com/id/626464158/photo/cat-with-open-mouth.jpg?s=1024x1024&w=is&k=20&c=8bFeNYxW_PjJX6oaHlxcsEYCxHzVIp7eejJNg1_AoSs='
+#         'file': 'https://media.istockphoto.com/id/626464158/photo/cat-with-open-mouth.jpg?s=1024x1024&w=is&k=20&c=
+#         8bFeNYxW_PjJX6oaHlxcsEYCxHzVIp7eejJNg1_AoSs='
 #     }
 #     response = requests.post(f'{base_url}/pet/{PET_ID}/uploadImage', files=file)
 #     json_data = response.json()
