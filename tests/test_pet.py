@@ -4,7 +4,6 @@ from data.api_methods import Pet, Store, User
 from data.api_data import RequestData as d
 
 
-
 @allure.epic("US_001.00.00 | Pet > Everything about your Pets")
 class TestPet:
     pet = Pet()
@@ -31,7 +30,7 @@ class TestPet:
         pet_id = response.json_data["id"]
         name = response.json_data["name"]
         json = d.data2
-        json['id'] = pet_id
+        json["id"] = pet_id
         response = self.pet.put_update_pet(json)
         new_name = response.json_data["name"]
         response = self.pet.get_find_pet_by_id(path=pet_id)
@@ -61,8 +60,8 @@ class TestStore:
     @allure.story("TC_001.02.01.01")
     def test_return(self):
         response = self.store.get_return_pet_inventory_by_status()
-        available = response.json_data['available']
-        print(f'Found {available} available pets')
+        available = response.json_data["available"]
+        print(f"Found {available} available pets")
 
 
 @allure.epic("US_003.00.00 | User > Operations about user")

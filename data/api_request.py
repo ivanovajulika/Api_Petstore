@@ -49,7 +49,9 @@ class APIRequest:
         json_data = response.json()
         headers = response.headers
         text = response.text
-        with allure.step(f"Response status code{status_code}, response message {response.json()['message']}"):
+        with allure.step(
+            f"Response status code{status_code}, response message {response.json()['message']}"
+        ):
             return Response(status_code, json_data, headers, text)
         # request.path_url, request.method
         # response.request.headers получить заголовки запроса
