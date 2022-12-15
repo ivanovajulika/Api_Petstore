@@ -27,10 +27,10 @@ def test_get_pet_valid_id(id, random_name, headers):
     status, result = pet.get_pet_by_id(id)
     if status != 200:
         data = {"id": id, "name": random_name, "status": "available"}
-        status, result = pet.post_add_new_pet(data, headers)
-    else:
-        print(result)
-        assert status == 200
+        pet.post_add_new_pet(data, headers)
+        status, result = pet.get_pet_by_id(id)
+    print(result)
+    assert status == 200
 
 
 @pytest.mark.parametrize(
@@ -50,12 +50,6 @@ def test_post_update_pet(id, random_name, headers, update_data):
     if status != 200:
         data = {"id": id, "name": random_name, "status": "available"}
         status, result = pet.post_add_new_pet(data, headers)
-        update_pet(id, update_data)
-    elif status == 200:
-        update_pet(id, update_data)
-
-
-def update_pet(id, update_data):
     status, result = pet.post_update_pet(id, data=update_data)
     assert status == 200
     status, result = pet.get_pet_by_id(id)
@@ -76,16 +70,8 @@ def test_delete_pet(id, random_name, headers):
     if status != 200:
         data = {"id": id, "name": random_name, "status": "available"}
         status, result = pet.post_add_new_pet(data, headers)
-        delete_pet(id, headers)
-    elif status == 200:
-        delete_pet(id, headers)
-
-
-def delete_pet(id, headers):
     status, result = pet.delete_pet(id, headers)
     assert status == 200
-    print(headers)
-    # print(headers('key'))
     assert int(result["message"]) == id
     status, result = pet.get_pet_by_id(id)
     assert status == 404
