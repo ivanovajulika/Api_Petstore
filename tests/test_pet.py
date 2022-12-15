@@ -1,9 +1,9 @@
 from api import Pet
 import pytest
+import allure
 
 
 pet = Pet()
-
 
 """ You can run all tests at once by selecting a file
 pytest -s -v tests/test_pet.py """
@@ -84,3 +84,10 @@ def test_delete_pet(id, random_name, headers):
 #     status, result = pet.post_uploads_image(id, pet_photo, headers('file'))
 #     assert status == 200
 #     print(result["message"])
+# def test_upload_image():
+#     file = {
+#         'additionalMetadata': 'new photo',
+#         'file': 'https://media.istockphoto.com/id/626464158/photo/cat-with-open-mouth.jpg?s=1024x1024&w=is&k=20&c=8bFeNYxW_PjJX6oaHlxcsEYCxHzVIp7eejJNg1_AoSs='
+#     }
+#     response = requests.post(f'{base_url}/pet/{PET_ID}/uploadImage', files=file)
+#     json_data = response.json()
