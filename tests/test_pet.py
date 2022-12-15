@@ -1,5 +1,6 @@
 from api import Pet
 import pytest
+import allure
 
 
 pet = Pet()
@@ -8,6 +9,7 @@ pet = Pet()
 pytest -s -v tests/test_pet.py """
 
 
+@allure.epic("US_001.00.00 | Pet > Everything about your Pets")
 @pytest.mark.parametrize(
     "status",
     ["available", "pending", "sold"],

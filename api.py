@@ -7,6 +7,7 @@ import allure
 url = "https://petstore.swagger.io/v2"
 
 
+
 class Pet:
     """Class Pet Methods"""
 
