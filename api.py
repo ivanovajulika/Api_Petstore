@@ -95,9 +95,9 @@ class Store:
         result = response.json()
         return status, result
 
-    def delete_order_by_id(self, id):
+    def delete_order_by_id(self, id, headers):
         """DELETE/store/order/{orderId} Delete order by ID"""
-        response = requests.delete(f"{url}/store/order/{id}")
+        response = requests.delete(f"{url}/store/order/{id}", headers=headers)
         status = response.status_code
         result = response.json()
         return status, result

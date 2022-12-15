@@ -35,9 +35,23 @@ def test_get_order_by_id(order_id, headers, random_order_id):
     assert status == 200
 
 
-def test_delete_order_by_id(order_id):
+def test_delete_order_by_id(order_id, headers):
     """Delete an existing order"""
-    status, result = store.delete_order_by_id(order_id)
+    status, result = store.get_order_by_id(order_id)
+    if status != 200:
+        data = {"id": order_id, "status": "placed", "complete": True}
+        status, result = store.post_order(data, headers)
+        delete_order(order_id, headers)
+    elif status == 200:
+        delete_order(order_id, headers)
+
+
+def delete_order(order_id, headers):
+    status, result = store.delete_order_by_id(order_id, headers)
     assert status == 200
+    print(headers)
     assert int(result["message"]) == order_id
     print(result["message"])
+    status, result = store.get_order_by_id(order_id)
+    assert status == 404
+
