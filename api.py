@@ -71,3 +71,40 @@ class Pet:
     #         status = response.status_code
     #         result = response.json()
     #         return status, result
+
+
+class Store:
+    """Class Store Methods"""
+
+    def __init__(self):
+        self.url = url
+
+    def get_store_inventory(self):
+        """GET/store/inventory Returns pet inventories by status"""
+        response = requests.get(f"{url}/store/inventory")
+        status = response.status_code
+        result = response.json()
+        return status, result
+
+    def post_order(self, data, headers):
+        """POST/store/order Place an order for a pet"""
+        response = requests.post(
+            f"{url}/store/order", data=json.dumps(data), headers=headers
+        )
+        status = response.status_code
+        result = response.json()
+        return status, result
+
+    def get_order_by_id(self, id):
+        """GET/store/order/{orderId} Find order by ID"""
+        response = requests.get(f"{url}/store/order/{id}")
+        status = response.status_code
+        result = response.json()
+        return status, result
+
+    def delete_order_by_id(self, id):
+        """DELETE/store/order/{orderId} Delete order by ID"""
+        response = requests.delete(f"{url}/store/order/{id}")
+        status = response.status_code
+        result = response.json()
+        return status, result
