@@ -1,6 +1,5 @@
 from api import Pet
 import pytest
-import allure
 
 
 pet = Pet()
