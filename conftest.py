@@ -18,14 +18,14 @@ def random_name(num=8):
     return ("".join(random.choice(string.ascii_lowercase) for _ in range(num))).title()
 
 
-@pytest.fixture
-def update_data(random_name):
-    return {"name": random_name, "status": "sold"}
+@pytest.fixture(params=["available", "pending", "sold"])
+def update_data(random_name, request):
+    return {"name": random_name, "status": request.param}
 
 
-@pytest.fixture
-def put_data(id, random_name):
-    return {"id": id, "name": random_name, "status": "sold"}
+@pytest.fixture(params=["available", "pending", "sold"])
+def put_data(id, random_name, request):
+    return {"id": id, "name": random_name, "status": request.param}
 
 
 @pytest.fixture
