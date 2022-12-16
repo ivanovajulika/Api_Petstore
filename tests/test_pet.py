@@ -13,19 +13,15 @@ pytest -s -v tests/test_pet.py """
 @allure.epic("US_001.00.00 | Pet > Everything about your Pets")
 class TestPets:
     def test_upload_image_path(self, id, headers):
-        current_dir = os.path.abspath(
-            os.path.dirname(__file__)
-        )  # получаем путь к директории текущего исполняемого файла
-        file_path = os.path.join(
-            current_dir, "Swagger.jpg"
-        )  # добавляем к этому пути имя файла
-        file = {
+        current_dir = os.path.abspath(os.path.dirname(__file__))
+        file_path = os.path.join(current_dir, "Swagger.jpg")
+        files = {
             "additionalMetadata": "Swagger.jpg",
             "file": ('Swagger.jpg"', open(file_path, "rb")),
             "Content-Type": "multipart/form-data",
             "type": "image/jpg",
         }
-        status, result = pet.post_uploads_image(id, headers, files=file)
+        status, result = pet.post_uploads_image(id, headers, files=files)
         print(result)
 
     @pytest.mark.parametrize(
