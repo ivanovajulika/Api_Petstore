@@ -72,6 +72,7 @@ class Pet:
             return status, result
 
     """Here we will fix the method when we figure out how to send the file"""
+
     def post_uploads_image(self, id, photo):
         """POST/pet/{petId}/uploadImage uploads an image"""
         files = {

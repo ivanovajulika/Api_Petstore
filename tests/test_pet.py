@@ -89,7 +89,7 @@ class TestPets:
         assert int(result["message"]) == id
         status, result = pet.get_pet_by_id(id)
         assert status == 404
-        
+
     def test_uploads_image(self, id, random_name, headers, photo="picture/34566.jpg"):
         status, result = pet.get_pet_by_id(id)
         if status != 200:
@@ -98,7 +98,8 @@ class TestPets:
         photo = os.path.join(os.path.dirname(__file__), photo)
         status, result = pet.post_uploads_image(id, photo)
         assert status == 200
-        print(result["message"])   
+        print(result["message"])
+
 
 store = Store()
 
