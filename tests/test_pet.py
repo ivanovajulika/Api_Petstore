@@ -1,4 +1,4 @@
-from api import Pet, Store
+from api import Pet, Store, User
 import pytest
 import allure
 
@@ -77,12 +77,14 @@ class TestPets:
 
 store = Store()
 
-@allure.epic("US_002.00.00 | Pet > Everything about your Pets")
+@allure.epic(("US_002.00.00 | Store > Access to Petstore orders"))
 class TestStore:
 
 
+user = User()
 
-
+@allure.epic(("US_002.00.00 | Store > Access to Petstore orders"))
+class TestUser:
 
 
 

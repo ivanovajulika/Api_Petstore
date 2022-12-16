@@ -108,3 +108,10 @@ class Store:
         status = response.status_code
         result = response.json()
         return status, result
+
+
+class User:
+    """Class User Methods"""
+
+    def __init__(self):
+        self.url = url
