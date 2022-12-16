@@ -1,4 +1,4 @@
-from api import Pet
+from api import Pet, Store, User
 import pytest
 import allure
 import os
@@ -12,6 +12,22 @@ pytest -s -v tests/test_pet.py """
 
 @allure.epic("US_001.00.00 | Pet > Everything about your Pets")
 class TestPets:
+    def test_upload_image_path(self, id, headers):
+        current_dir = os.path.abspath(
+            os.path.dirname(__file__)
+        )  # получаем путь к директории текущего исполняемого файла
+        file_path = os.path.join(
+            current_dir, "Swagger.jpg"
+        )  # добавляем к этому пути имя файла
+        file = {
+            "additionalMetadata": "Swagger.jpg",
+            "file": ('Swagger.jpg"', open(file_path, "rb")),
+            "Content-Type": "multipart/form-data",
+            "type": "image/jpg",
+        }
+        status, result = pet.post_uploads_image(id, headers, files=file)
+        print(result)
+
     @pytest.mark.parametrize(
         "status",
         ["available", "pending", "sold"],
@@ -83,3 +99,21 @@ class TestPets:
         status, result = pet.post_uploads_image(id, photo)
         assert status == 200
         print(result["message"])
+
+
+store = Store()
+
+
+@allure.epic("US_002.00.00 | Store > Access to Petstore orders")
+class TestStore:
+    def test(self):
+        pass
+
+
+user = User()
+
+
+@allure.epic("US_003.00.00 | User > Operations about user")
+class TestUser:
+    def test_1(self):
+        pass
