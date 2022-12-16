@@ -11,6 +11,19 @@ pytest -s -v tests/test_pet.py """
 
 @allure.epic("US_001.00.00 | Pet > Everything about your Pets")
 class TestPets:
+    def test_upload_image(self, headers):
+        # file = {
+        #     "additionalMetadata": "new photo",
+        #     "file": "https://media.istockphoto.com/id/626464158/photo/cat-with-open-mouth.jpg?s=1024x1024&w=is&k=20&c=8bFeNYxW_PjJX6oaHlxcsEYCxHzVIp7eejJNg1_AoSs=",
+        # }
+        file = {
+            "additionalMetadata": "Swagger.jpg",
+            'file': ('Swagger.jpg"', open('/picture/Swagger.jpeg', 'rb')),
+            'Content-Type': 'multipart/form-data'
+        }
+        status, result = pet.post_add_new_pet(data=file, headers=headers)
+        print(result)
+
     @pytest.mark.parametrize(
         "status",
         ["available", "pending", "sold"],
@@ -100,11 +113,3 @@ class TestUser:
 #     status, result = pet.post_uploads_image(id, pet_photo, headers('file'))
 #     assert status == 200
 #     print(result["message"])
-# def test_upload_image():
-#     file = {
-#         'additionalMetadata': 'new photo',
-#         'file': 'https://media.istockphoto.com/id/626464158/photo/cat-with-open-mouth.jpg?s=1024x1024&w=is&k=20&c=
-#         8bFeNYxW_PjJX6oaHlxcsEYCxHzVIp7eejJNg1_AoSs='
-#     }
-#     response = requests.post(f'{base_url}/pet/{PET_ID}/uploadImage', files=file)
-#     json_data = response.json()

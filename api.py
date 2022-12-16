@@ -62,15 +62,16 @@ class Pet:
             return status, result
 
     """Here we will fix the method when we figure out how to send the file"""
-    # def post_uploads_image(self, id, pet_photo, headers):
-    #         """POST/pet/{petId}/uploadImage uploads an image"""
-    #         data = MultipartEncoder(
-    #             fields={'file': (pet_photo, open(pet_photo, 'rb'))})
 
-    #         response = requests.post(f"{url}/pet/{id}/uploadImage", data, headers)
-    #         status = response.status_code
-    #         result = response.json()
-    #         return status, result
+    def post_uploads_image(self, id, pet_photo, headers):
+        """POST/pet/{petId}/uploadImage uploads an image"""
+        # data = MultipartEncoder(
+        #     fields={'file': (pet_photo, open(pet_photo, 'rb'))})
+
+        response = requests.post(f"{url}/pet/{id}/uploadImage", headers)
+        status = response.status_code
+        result = response.json()
+        return status, result
 
 
 class Store:
