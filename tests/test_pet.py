@@ -15,13 +15,13 @@ class TestPets:
     def test_upload_image_path(self, id, headers):
         current_dir = os.path.abspath(os.path.dirname(__file__))
         file_path = os.path.join(current_dir, "Swagger.jpg")
-        files = {
+        file = {
             "additionalMetadata": "Swagger.jpg",
             "file": ('Swagger.jpg"', open(file_path, "rb")),
             "Content-Type": "multipart/form-data",
             "type": "image/jpg",
         }
-        status, result = pet.post_uploads_image(id, headers, files=files)
+        status, result = pet.post_uploads_image(id, headers, files=file)
         print(result)
 
     @pytest.mark.parametrize(
