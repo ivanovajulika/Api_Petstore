@@ -11,7 +11,6 @@ pytest -s -v tests/test_pet.py """
 
 @allure.epic("US_001.00.00 | Pet > Everything about your Pets")
 class TestPets:
-
     @pytest.mark.parametrize(
         "status",
         ["available", "pending", "sold"],
