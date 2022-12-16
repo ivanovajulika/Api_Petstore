@@ -3,7 +3,6 @@ import pytest
 import allure
 import os
 
-
 pet = Pet()
 
 """ You can run all tests at once by selecting a file

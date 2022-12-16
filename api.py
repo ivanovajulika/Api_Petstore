@@ -1,6 +1,7 @@
 import requests
 import json
 import allure
+import logging
 
 
 url = "https://petstore.swagger.io/v2"
@@ -17,6 +18,7 @@ class Pet:
         response = requests.get(f"{url}/pet/{id}")
         status = response.status_code
         result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
             return status, result
 
@@ -25,6 +27,7 @@ class Pet:
         response = requests.get(f"{url}/pet/findByStatus?status={params}")
         status = response.status_code
         result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
             return status, result
 
@@ -33,6 +36,7 @@ class Pet:
         response = requests.post(f"{url}/pet/{id}", data=data)
         status = response.status_code
         result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
             return status, result
 
@@ -41,6 +45,7 @@ class Pet:
         response = requests.post(f"{url}/pet", data=json.dumps(data), headers=headers)
         status = response.status_code
         result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"PUT request from url {response.request.path_url}"):
             return status, result
 
@@ -49,6 +54,7 @@ class Pet:
         response = requests.post(f"{url}/pet", data=json.dumps(data), headers=headers)
         status = response.status_code
         result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
             return status, result
 
@@ -57,6 +63,7 @@ class Pet:
         response = requests.delete(f"{url}/pet/{id}", headers=headers)
         status = response.status_code
         result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"DELETE request from url {response.request.path_url}"):
             return status, result
 
@@ -69,7 +76,9 @@ class Pet:
         response = requests.post(f"{url}/pet/{id}/uploadImage", files=files)
         status = response.status_code
         result = response.json()
-        return status, result
+        logging.info(f"{response.status_code} => {response.ok} ")
+        with allure.step(f"POST request from url {response.request.path_url}"):
+            return status, result
 
     def post_uploads_image_path(self, id, headers, files):
         """POST/pet/{petId}/uploadImage uploads an image"""
@@ -91,7 +100,9 @@ class Store:
         response = requests.get(f"{url}/store/inventory")
         status = response.status_code
         result = response.json()
-        return status, result
+        logging.info(f"{response.status_code} => {response.ok}")
+        with allure.step(f"GET request from url {response.request.path_url}"):
+            return status, result
 
     def post_order(self, data, headers):
         """POST/store/order Place an order for a pet"""
@@ -100,21 +111,27 @@ class Store:
         )
         status = response.status_code
         result = response.json()
-        return status, result
+        logging.info(f"{response.status_code} => {response.ok}")
+        with allure.step(f"POST request from url {response.request.path_url}"):
+            return status, result
 
     def get_order_by_id(self, id):
         """GET/store/order/{orderId} Find order by ID"""
         response = requests.get(f"{url}/store/order/{id}")
         status = response.status_code
         result = response.json()
-        return status, result
+        logging.info(f"{response.status_code} => {response.ok}")
+        with allure.step(f"GET request from url {response.request.path_url}"):
+            return status, result
 
     def delete_order_by_id(self, id, headers):
         """DELETE/store/order/{orderId} Delete order by ID"""
         response = requests.delete(f"{url}/store/order/{id}", headers=headers)
         status = response.status_code
         result = response.json()
-        return status, result
+        logging.info(f"{response.status_code} => {response.ok}")
+        with allure.step(f"DELETE request from url {response.request.path_url}"):
+            return status, result
 
 
 class User:
