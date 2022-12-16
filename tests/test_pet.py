@@ -77,13 +77,14 @@ class TestPets:
 
 store = Store()
 
-@allure.epic(("US_002.00.00 | Store > Access to Petstore orders"))
+@allure.epic("US_002.00.00 | Store > Access to Petstore orders")
 class TestStore:
+
 
 
 user = User()
 
-@allure.epic(("US_002.00.00 | Store > Access to Petstore orders"))
+@allure.epic("US_003.00.00 | User > Operations about user")
 class TestUser:
 
 
