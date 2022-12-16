@@ -11,16 +11,6 @@ pytest -s -v tests/test_pet.py """
 
 @allure.epic("US_001.00.00 | Pet > Everything about your Pets")
 class TestPets:
-    def test_upload_image_path(self, id, headers):
-        current_dir = os.path.abspath(os.path.dirname(__file__))
-        file_path = os.path.join(current_dir, "Swagger.jpg")
-        file = {
-            "additionalMetadata": "Swagger.jpg",
-            "file": ('Swagger.jpg"', open(file_path, "rb")),
-            "Content-Type": "multipart/form-data",
-            "type": "image/jpg",
-        }
-        status, result = pet.post_uploads_image_path(id, headers, files=file)
 
     @pytest.mark.parametrize(
         "status",
@@ -94,6 +84,19 @@ class TestPets:
         assert status == 200
         print(result["message"])
 
+    def test_upload_image_path(self, id, headers):
+        current_dir = os.path.abspath(os.path.dirname(__file__))
+        file_path = os.path.join(current_dir, "Swagger.jpg")
+        file = {
+            "additionalMetadata": "Swagger.jpg",
+            "file": ('Swagger.jpg"', open(file_path, "rb")),
+            "Content-Type": "multipart/form-data",
+            "type": "image/jpg",
+        }
+        status, result = pet.post_uploads_image_path(id, headers, files=file)
+        assert status == 200
+        print(result)
+
 
 store = Store()
 
@@ -111,13 +114,3 @@ user = User()
 class TestUser:
     def test_1(self):
         pass
-
-
-"""Here we will fix the test when we figure out how to send the file"""
-
-# def test_uploads_image(pet_photo='images/cat1.jpg'):
-#     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
-#     headers = headers_mult
-#     status, result = pet.post_uploads_image(id, pet_photo, headers('file'))
-#     assert status == 200
-#     print(result["message"])
