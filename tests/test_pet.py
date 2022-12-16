@@ -1,4 +1,4 @@
-from api import Pet
+from api import Pet, Store
 import pytest
 import allure
 
@@ -72,6 +72,20 @@ class TestPets:
         assert int(result["message"]) == id
         status, result = pet.get_pet_by_id(id)
         assert status == 404
+
+
+
+store = Store()
+
+@allure.epic("US_002.00.00 | Pet > Everything about your Pets")
+class TestStore:
+
+
+
+
+
+
+
 
 
 """Here we will fix the test when we figure out how to send the file"""
