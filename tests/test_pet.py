@@ -25,7 +25,7 @@ class TestPets:
             "Content-Type": "multipart/form-data",
             "type": "image/jpg",
         }
-        status, result = pet.post_uploads_image(id, headers, files=file)
+        status, result = pet.post_uploads_image_path(id, headers, files=file)
         print(result)
 
     @pytest.mark.parametrize(
