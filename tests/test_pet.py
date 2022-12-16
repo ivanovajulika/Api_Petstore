@@ -3,7 +3,6 @@ import pytest
 import allure
 import os
 
-
 pet = Pet()
 
 """ You can run all tests at once by selecting a file
@@ -26,7 +25,6 @@ class TestPets:
             "type": "image/jpg",
         }
         status, result = pet.post_uploads_image_path(id, headers, files=file)
-        print(result)
 
     @pytest.mark.parametrize(
         "status",
