@@ -1,6 +1,11 @@
 import logging
 
-logging.basicConfig(level="DEBUG", filename='Mylog.log', filemode='w', format='%(asctime)s::%(levelname)s::%(message)s')
+logging.basicConfig(
+    level="DEBUG",
+    filename='Mylog.log',
+    filemode='w',
+    format='%(asctime)s::%(levelname)s::%(message)s',
+)
 
 logger = logging.getLogger()
 print(logger.level)

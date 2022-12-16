@@ -20,7 +20,7 @@ def order_id():
 
 @pytest.fixture
 def id():
-    return 888
+    return 88
 
 
 @pytest.fixture
@@ -39,17 +39,5 @@ def put_data(id, random_name, request):
 
 
 @pytest.fixture
-def headers(k="default"):
-    if k == "default":
-        return {"accept": "application/json", "Content-Type": "application/json"}
-    elif k == "key":
-        return {
-            "api_key": "special-key",
-            "accept": "application/json",
-            "Content-Type": "application/json",
-        }
-    elif k == "file":
-        return {"accept": "application/json", "Content-Type": "multipart/form-data"}
-
-
-# params = {"status": "available"}
+def headers():
+    return {"accept": "application/json", "Content-Type": "application/json"}
