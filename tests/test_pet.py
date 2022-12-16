@@ -1,6 +1,7 @@
 from api import Pet
 import pytest
 import allure
+import os
 
 
 pet = Pet()
@@ -73,19 +74,12 @@ class TestPets:
         status, result = pet.get_pet_by_id(id)
         assert status == 404
 
-
-"""Here we will fix the test when we figure out how to send the file"""
-# def test_uploads_image(pet_photo='images/cat1.jpg'):
-#     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
-#     headers = headers_mult
-#     status, result = pet.post_uploads_image(id, pet_photo, headers('file'))
-#     assert status == 200
-#     print(result["message"])
-# def test_upload_image():
-#     file = {
-#         'additionalMetadata': 'new photo',
-#         'file': 'https://media.istockphoto.com/id/626464158/photo/cat-with-open-mouth.jpg?s=1024x1024&w=is&k=20&c=
-#         8bFeNYxW_PjJX6oaHlxcsEYCxHzVIp7eejJNg1_AoSs='
-#     }
-#     response = requests.post(f'{base_url}/pet/{PET_ID}/uploadImage', files=file)
-#     json_data = response.json()
+    def test_uploads_image(self, id, random_name, headers, photo="picture/34566.jpg"):
+        status, result = pet.get_pet_by_id(id)
+        if status != 200:
+            data = {"id": id, "name": random_name, "status": "available"}
+            status, result = pet.post_add_new_pet(data, headers)
+        photo = os.path.join(os.path.dirname(__file__), photo)
+        status, result = pet.post_uploads_image(id, photo)
+        assert status == 200
+        print(result["message"])
