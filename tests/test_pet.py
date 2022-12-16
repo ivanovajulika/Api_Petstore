@@ -1,6 +1,7 @@
 from api import Pet, Store, User
 import pytest
 import allure
+import os
 
 
 pet = Pet()
@@ -11,17 +12,20 @@ pytest -s -v tests/test_pet.py """
 
 @allure.epic("US_001.00.00 | Pet > Everything about your Pets")
 class TestPets:
-    def test_upload_image(self, headers):
-        # file = {
-        #     "additionalMetadata": "new photo",
-        #     "file": "https://media.istockphoto.com/id/626464158/photo/cat-with-open-mouth.jpg?s=1024x1024&w=is&k=20&c=8bFeNYxW_PjJX6oaHlxcsEYCxHzVIp7eejJNg1_AoSs=",
-        # }
+    def test_upload_image(self, id, headers):
+        current_dir = os.path.abspath(
+            os.path.dirname(__file__)
+        )  # получаем путь к директории текущего исполняемого файла
+        file_path = os.path.join(
+            current_dir, "Swagger.jpg"
+        )  # добавляем к этому пути имя файла
         file = {
             "additionalMetadata": "Swagger.jpg",
-            'file': ('Swagger.jpg"', open('/picture/Swagger.jpeg', 'rb')),
-            'Content-Type': 'multipart/form-data'
+            "file": ('Swagger.jpg"', open(file_path, "rb")),
+            "Content-Type": "multipart/form-data",
+            "type": "image/jpg",
         }
-        status, result = pet.post_add_new_pet(data=file, headers=headers)
+        status, result = pet.post_uploads_image(id, headers, files=file)
         print(result)
 
     @pytest.mark.parametrize(

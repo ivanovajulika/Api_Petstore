@@ -13,6 +13,17 @@ class Pet:
     def __init__(self):
         self.url = url
 
+    def post_uploads_image(self, id, headers, files):
+        """POST/pet/{petId}/uploadImage uploads an image"""
+        # data = MultipartEncoder(
+        #     fields={'file': (pet_photo, open(pet_photo, 'rb'))})
+
+        response = requests.post(f"{url}/pet/{id}/uploadImage", headers, files=files)
+        status = response.status_code
+        result = response.json()
+        with allure.step(f"POST request from url {response.request.path_url}"):
+            return status, result
+
     def get_pet_by_id(self, id):
         """GET/pet/{petId} Find pet by ID"""
         response = requests.get(f"{url}/pet/{id}")
@@ -62,16 +73,6 @@ class Pet:
             return status, result
 
     """Here we will fix the method when we figure out how to send the file"""
-
-    def post_uploads_image(self, id, pet_photo, headers):
-        """POST/pet/{petId}/uploadImage uploads an image"""
-        # data = MultipartEncoder(
-        #     fields={'file': (pet_photo, open(pet_photo, 'rb'))})
-
-        response = requests.post(f"{url}/pet/{id}/uploadImage", headers)
-        status = response.status_code
-        result = response.json()
-        return status, result
 
 
 class Store:
