@@ -100,7 +100,7 @@ class Store:
         response = requests.get(f"{url}/store/inventory")
         status = response.status_code
         result = response.json()
-        logging.info(f'{response.status_code} => {response.ok}')
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
             return status, result
 
@@ -111,7 +111,7 @@ class Store:
         )
         status = response.status_code
         result = response.json()
-        logging.info(f'{response.status_code} => {response.ok}')
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
             return status, result
 
@@ -120,7 +120,7 @@ class Store:
         response = requests.get(f"{url}/store/order/{id}")
         status = response.status_code
         result = response.json()
-        logging.info(f'{response.status_code} => {response.ok}')
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
             return status, result
 
@@ -129,7 +129,7 @@ class Store:
         response = requests.delete(f"{url}/store/order/{id}", headers=headers)
         status = response.status_code
         result = response.json()
-        logging.info(f'{response.status_code} => {response.ok}')
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"DELETE request from url {response.request.path_url}"):
             return status, result
 
