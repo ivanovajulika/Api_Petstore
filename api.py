@@ -18,7 +18,7 @@ class Pet:
         response = requests.get(f"{url}/pet/{id}")
         status = response.status_code
         result = response.json()
-        logging.info(f'{response.status_code} => {response.ok} =>{result["message"]}')
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
             return status, result
 
@@ -27,7 +27,7 @@ class Pet:
         response = requests.get(f"{url}/pet/findByStatus?status={params}")
         status = response.status_code
         result = response.json()
-        logging.info(f'{response.status_code} => {response.ok} =>{result["message"]}')
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
             return status, result
 
@@ -36,7 +36,7 @@ class Pet:
         response = requests.post(f"{url}/pet/{id}", data=data)
         status = response.status_code
         result = response.json()
-        logging.info(f'{response.status_code} => {response.ok} =>{result["message"]}')
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
             return status, result
 
@@ -45,7 +45,7 @@ class Pet:
         response = requests.post(f"{url}/pet", data=json.dumps(data), headers=headers)
         status = response.status_code
         result = response.json()
-        logging.info(f'{response.status_code} => {response.ok} =>{result["message"]}')
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"PUT request from url {response.request.path_url}"):
             return status, result
 
@@ -54,7 +54,7 @@ class Pet:
         response = requests.post(f"{url}/pet", data=json.dumps(data), headers=headers)
         status = response.status_code
         result = response.json()
-        logging.info(f'{response.status_code} => {response.ok} =>{result["message"]}')
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
             return status, result
 
@@ -63,7 +63,7 @@ class Pet:
         response = requests.delete(f"{url}/pet/{id}", headers=headers)
         status = response.status_code
         result = response.json()
-        logging.info(f'{response.status_code} => {response.ok} =>{result["message"]}')
+        logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"DELETE request from url {response.request.path_url}"):
             return status, result
 
@@ -76,7 +76,7 @@ class Pet:
         response = requests.post(f"{url}/pet/{id}/uploadImage", files=files)
         status = response.status_code
         result = response.json()
-        logging.info(f'{response.status_code} => {response.ok} =>{result["message"]}')
+        logging.info(f"{response.status_code} => {response.ok} ")
         with allure.step(f"POST request from url {response.request.path_url}"):
             return status, result
 
