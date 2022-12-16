@@ -2,7 +2,6 @@ import requests
 import json
 import allure
 
-# from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 url = "https://petstore.swagger.io/v2"
 
@@ -73,6 +72,16 @@ class Pet:
             return status, result
 
     """Here we will fix the method when we figure out how to send the file"""
+    def post_uploads_image(self, id, photo):
+        """POST/pet/{petId}/uploadImage uploads an image"""
+        files = {
+            "file": ("photo", open(photo, "rb")),
+            "Content-Type": "multipart/form-data",
+        }
+        response = requests.post(f"{url}/pet/{id}/uploadImage", files=files)
+        status = response.status_code
+        result = response.json()
+        return status, result
 
 
 class Store:
