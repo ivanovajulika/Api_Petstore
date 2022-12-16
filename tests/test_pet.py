@@ -74,24 +74,26 @@ class TestPets:
         assert status == 404
 
 
-
 store = Store()
+
 
 @allure.epic("US_002.00.00 | Store > Access to Petstore orders")
 class TestStore:
-
+    def test(self):
+        pass
 
 
 user = User()
 
+
 @allure.epic("US_003.00.00 | User > Operations about user")
 class TestUser:
-
-
-
+    def test_1(self):
+        pass
 
 
 """Here we will fix the test when we figure out how to send the file"""
+
 # def test_uploads_image(pet_photo='images/cat1.jpg'):
 #     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
 #     headers = headers_mult
