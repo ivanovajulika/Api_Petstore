@@ -13,7 +13,7 @@ class Pet:
     def __init__(self):
         self.url = url
 
-    def post_uploads_image(self, id, headers, files):
+    def post_uploads_image_path(self, id, headers, files):
         """POST/pet/{petId}/uploadImage uploads an image"""
         # data = MultipartEncoder(
         #     fields={'file': (pet_photo, open(pet_photo, 'rb'))})

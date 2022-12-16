@@ -12,7 +12,7 @@ pytest -s -v tests/test_pet.py """
 
 @allure.epic("US_001.00.00 | Pet > Everything about your Pets")
 class TestPets:
-    def test_upload_image(self, id, headers):
+    def test_upload_image_path(self, id, headers):
         current_dir = os.path.abspath(
             os.path.dirname(__file__)
         )  # получаем путь к директории текущего исполняемого файла
