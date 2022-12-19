@@ -1,0 +1,3 @@
+INFO     root:api.py:123 200 => True
+INFO     root:api.py:132 200 => True
+INFO     root:api.py:123 404 => False
