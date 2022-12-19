@@ -139,3 +139,12 @@ class User:
 
     def __init__(self):
         self.url = url
+
+    def post_new_user(self, data, headers):
+        """POST/user Create user"""
+        response = requests.post(f"{url}/user", data=json.dumps(data), headers=headers)
+        status = response.status_code
+        result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
+        with allure.step(f"POST request from url {response.request.path_url}"):
+            return status, result
