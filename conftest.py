@@ -14,8 +14,18 @@ def random_order_id():
 
 
 @pytest.fixture
+def random_user_id():
+    return random.randrange(1, 1000)
+
+
+@pytest.fixture
 def order_id():
     return 5
+
+
+@pytest.fixture
+def user_id():
+    return 7
 
 
 @pytest.fixture
