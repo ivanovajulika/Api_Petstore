@@ -15,17 +15,20 @@ class TestPet:
         current_dir = os.path.abspath(os.path.dirname(__file__))
         file_path = os.path.join(current_dir, "Swagger.jpg")
         headers = {"Content-Type": "multipart/form-data"}
-        files = {'file':'"Swagger.jpg": open("Swagger.jpg", "rb"),'
-                        '}
+        self.file = {
+            "additionalMetadata": "image/jpg",
+            "file": ('Swagger.jpg"', open(file_path, "rb")),
+            "Content-Type": "multipart/form-data",
+        }
         # multiple_files = {"images", ("Swagger.jpg", open(file_path, "rb"), "image/jpg")}
-        response = self.pet.post_upload_image()
+        response = self.pet.post_upload_image(self.file)
         print(response.status_code)
         print(response.json_data)
 
     @allure.feature("TC_001.02.01  | Add a new pet")
     @allure.story("TC_001.02.01.01")
-    def test(self):
-        response = self.pet.post_add_a_new_pet()
+    def test(self, pet_data):
+        response = self.pet.post_add_a_new_pet(json=pet_data)
         print(response.status_code)
         assert "id" in response.json_data.keys()
         print(response.json_data["id"])
