@@ -1,7 +1,6 @@
-import pytest
 import allure
 from data.api_methods import Pet, Store, User
-from data.conftest import RequestData as d
+from conftest import RequestData as d
 import os
 
 
@@ -35,7 +34,7 @@ class TestPet:
         print(response.json_data["name"])
         print(response.headers)
 
-    def test_create_update_delete(self):
+    def test_create_update_delete(self, pet_data):
         response = self.pet.post_add_a_new_pet()
         pet_id = response.json_data["id"]
         name = response.json_data["name"]

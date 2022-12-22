@@ -1,5 +1,5 @@
 from data.api_request import APIRequest
-from data.conftest import RequestData as d
+from conftest import RequestData as d
 
 
 class Pet(APIRequest):

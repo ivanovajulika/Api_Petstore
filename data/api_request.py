@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 import requests
-from data.conftest import RequestData as d
+from conftest import RequestData as d
 import allure
 
 
@@ -50,7 +50,7 @@ class APIRequest:
         headers = response.headers
         text = response.text
         with allure.step(
-            f"Response status code{status_code}, response message {response.json()['message']}"
+            f"Response status code{status_code}"
         ):
             return Response(status_code, json_data, headers, text)
         # request.path_url, request.method
