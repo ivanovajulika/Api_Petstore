@@ -28,7 +28,7 @@ class TestPet:
     @allure.feature("TC_001.02.01  | Add a new pet")
     @allure.story("TC_001.02.01.01")
     def test(self, pet_data):
-        response = self.pet.post_add_a_new_pet(json=pet_data)
+        response = self.pet.post_add_a_new_pet()
         print(response.status_code)
         assert "id" in response.json_data.keys()
         print(response.json_data["id"])

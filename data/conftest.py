@@ -50,7 +50,7 @@ def random_name():
 
 @pytest.fixture(params=["available", "pending", "sold"])
 def pet_data(random_id, random_name, request):
-    data = {
+    json = {
         "id": random_id,
         "category": {"id": 0, "name": "string"},
         "name": random_name,
@@ -58,4 +58,3 @@ def pet_data(random_id, random_name, request):
         "tags": [{"id": 0, "name": "string"}],
         "status": request.param,
     }
-    return data
