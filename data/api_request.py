@@ -28,19 +28,19 @@ class APIRequest:
 
     def post(self, endpoint="", path="", json=None, headers=None):
         url = f"{self.base_url}/{endpoint}/{path}"
-        response = requests.post(url, json=d.data, headers=self.headers)
+        response = requests.post(url, json=json, headers=self.headers)
         with allure.step(f"PUT request from url {response.request.path_url}"):
             return self.get_response_data(response)
 
     def put(self, endpoint="", json=None, headers=None):
         url = f"{self.base_url}/{endpoint}"
-        response = requests.post(url, json=d.data2, headers=self.headers)
+        response = requests.post(url, json=json, headers=self.headers)
         with allure.step(f"POST request from url {response.request.path_url}"):
             return self.get_response_data(response)
 
     def delete(self, endpoint="", path="", json=None, headers=None):
         url = f"{self.base_url}/{endpoint}/{path}"
-        response = requests.delete(url, json=d.data, headers=self.headers)
+        response = requests.delete(url, json=json, headers=self.headers)
         with allure.step(f"DELETE request from url {response.request.path_url}"):
             return self.get_response_data(response)
 
