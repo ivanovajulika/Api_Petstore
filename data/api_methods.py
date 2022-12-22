@@ -1,6 +1,5 @@
 from data.api_request import APIRequest
 from data.conftest import RequestData as d
-import pytest
 
 
 class Pet(APIRequest):
@@ -18,18 +17,19 @@ class Pet(APIRequest):
     #     ]
     params = {"status": "sold"}
 
-    def post_upload_image(self, path=f"{11}/uploadImage", files=d.multiple_files, headers=d.headers):
+    def post_upload_image(
+        self, path=f"{11}/uploadImage", files=d.multiple_files, headers=d.headers
+    ):
         return self.post(self.endpoint, path, files, headers)
 
-    def post_add_a_new_pet(self):
-        return self.post(self.endpoint)
+    def post_add_a_new_pet(self, pet_data):
+        return self.post(self.endpoint, json=pet_data)
 
     def put_update_pet(self, json):
         return self.put(self.endpoint, json)
 
-    @pytest.mark.parametrize('pet_status', ['available', 'pendind', 'sold']
-    def get_find_by_status(self, path="findByStatus", pet_status)
-        return self.get(self.endpoint, path,  params={"status": pet_status})
+    def get_find_by_status(self, path="findByStatus"):
+        return self.get(self.endpoint, path, params={"status": "sold"})
 
     def get_find_pet_by_id(self, path=f"/{d.random_id}"):
         return self.get(self.endpoint, path)
@@ -48,7 +48,7 @@ class Store(APIRequest):
         self.path = path
         self.response = APIRequest()
 
-    def post_place_an_order(self, path=f"/order"):
+    def post_place_an_order(self, path="/order"):
         return self.post(self.endpoint, path)
 
     def get_find_order_by_id(self, path=f"/order/{d.random_order_id}"):

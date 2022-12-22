@@ -2,6 +2,7 @@ import pytest
 import allure
 from data.api_methods import Pet, Store, User
 from data.conftest import RequestData as d
+import os
 
 
 @allure.epic("US_001.00.00 | Pet > Everything about your Pets")
@@ -11,6 +12,12 @@ class TestPet:
     @allure.feature("TS_001.01.00 |  Uploads an image")
     @allure.story("TC_001.01.01")
     def test_same(self):
+        current_dir = os.path.abspath(os.path.dirname(__file__))
+        file_path = os.path.join(current_dir, "Swagger.jpg")
+        headers = {"Content-Type": "multipart/form-data"}
+        files = {'file':'"Swagger.jpg": open("Swagger.jpg", "rb"),'
+                        '}
+        # multiple_files = {"images", ("Swagger.jpg", open(file_path, "rb"), "image/jpg")}
         response = self.pet.post_upload_image()
         print(response.status_code)
         print(response.json_data)

@@ -35,16 +35,7 @@ class RequestData:
         "status": "placed",
         "complete": True,
     }
-    current_dir = os.path.abspath(
-        os.path.dirname(__file__)
-    )  # получаем путь к директории текущего исполняемого файла
-    file_path = os.path.join(
-        current_dir, "Swagger.jpg"
-    )  # добавляем к этому пути имя файла
-    print(file_path)
-    headers = {"Content-Type": "multipart/form-data"}
-    files = {"Swagger.jpg": open("Swagger.jpg", "rb")}
-    multiple_files = {"images", ("Swagger.jpg", open(file_path, "rb"), "image/jpg")}
+
 
 
 @pytest.fixture
