@@ -2,6 +2,8 @@ import string
 import random
 import os
 
+import pytest
+
 
 class RequestData:
     random_name = (
@@ -31,7 +33,7 @@ class RequestData:
         "quantity": 0,
         "shipDate": "2022-12-08T09:10:58.100Z",
         "status": "placed",
-        "complete": True
+        "complete": True,
     }
     current_dir = os.path.abspath(
         os.path.dirname(__file__)
@@ -40,6 +42,28 @@ class RequestData:
         current_dir, "Swagger.jpg"
     )  # добавляем к этому пути имя файла
     print(file_path)
-    headers = {'Content-Type': 'multipart/form-data'}
-    files = {'Swagger.jpg': open('Swagger.jpg', 'rb')}
-    multiple_files = {'images', ('Swagger.jpg', open(file_path, 'rb'), 'image/jpg')}
+    headers = {"Content-Type": "multipart/form-data"}
+    files = {"Swagger.jpg": open("Swagger.jpg", "rb")}
+    multiple_files = {"images", ("Swagger.jpg", open(file_path, "rb"), "image/jpg")}
+
+
+@pytest.fixture
+def random_id():
+    return random.randrange(1, 100)
+
+
+@pytest.fixture
+def random_name():
+    return ("".join(random.choice(string.ascii_lowercase) for _ in range(8))).title()
+
+
+@pytest.fixture(params=["available", "pending", "sold"])
+def pet_data(random_id, random_name, request):
+    return {
+        "id": random_id,
+        "category": {"id": 0, "name": "string"},
+        "name": random_name,
+        "photoUrls": ["string"],
+        "tags": [{"id": 0, "name": "string"}],
+        "status": request.param,
+    }

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 import requests
-from data.api_data import RequestData as d
+from data.conftest import RequestData as d
 import allure
 
 

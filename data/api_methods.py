@@ -1,5 +1,5 @@
 from data.api_request import APIRequest
-from data.api_data import RequestData as d
+from data.conftest import RequestData as d
 import pytest
 
 
