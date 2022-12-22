@@ -37,7 +37,6 @@ class RequestData:
     }
 
 
-
 @pytest.fixture
 def random_id():
     return random.randrange(1, 100)
