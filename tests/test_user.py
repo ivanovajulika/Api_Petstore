@@ -45,7 +45,7 @@ def test_post_new_user_positive(id, name, headers):
     assert status == 404
 
 
-@allure.epic("US_003.00.00 | User > Operations about user - negative" )
+@allure.epic("US_003.00.00 | User > Operations about user - negative")
 @pytest.mark.xfail
 @pytest.mark.parametrize(
     "user_id",
