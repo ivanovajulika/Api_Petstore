@@ -19,7 +19,7 @@ def random_name(num=8):
     return ("".join(random.choice(string.ascii_lowercase) for _ in range(num))).title()
 
 
-@allure.feature("post user positive")
+@allure.epic("US_003.00.00 | User > Operations about user - positive")
 @pytest.mark.parametrize(
     "id",
     [random_user_id()],
@@ -45,7 +45,7 @@ def test_post_new_user_positive(id, name, headers):
     assert status == 404
 
 
-@allure.feature("post user negative")
+@allure.epic("US_003.00.00 | User > Operations about user - negative")
 @pytest.mark.xfail
 @pytest.mark.parametrize(
     "user_id",
