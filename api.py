@@ -179,7 +179,7 @@ class User:
             return status, result
 
     def get_user_login(self, params, headers):
-        """GET/user/login """
+        """GET/user/login"""
         response = requests.get(f"{url}/user/login", params=params, headers=headers)
         status = response.status_code
         result = response.json()
@@ -188,7 +188,7 @@ class User:
             return status, result
 
     def get_user_logout(self, headers):
-        """GET/user/login """
+        """GET/user/login"""
         response = requests.get(f"{url}/user/logout", headers=headers)
         status = response.status_code
         result = response.json()
