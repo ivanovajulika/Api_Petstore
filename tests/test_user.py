@@ -83,6 +83,7 @@ def test_post_new_user_negative(user_id, name, headers):
     assert status == 404
 
 
+@allure.epic("US_003.00.00 | User > Operations about put user")
 def test_put_user(random_user_id, random_name, headers):
     """Create user, update user, verifies if the user is updated"""
     data = {
@@ -111,6 +112,7 @@ def test_put_user(random_user_id, random_name, headers):
     print(result)
 
 
+@allure.epic("US_003.00.00 | User > Operations about user - login positive")
 @pytest.mark.parametrize(
     "username",
     [random_name(), random_name().lower(), random_name().upper()],
@@ -128,6 +130,7 @@ def test_get_login_positive(username, password, headers):
     print(result)
 
 
+@allure.epic("US_003.00.00 | User > Operations about user - login negative")
 @pytest.mark.xfail
 @pytest.mark.parametrize(
     "username",
@@ -146,6 +149,7 @@ def test_get_login_negative(username, password, headers):
     print(result)
 
 
+@allure.epic("US_003.00.00 | User > Operations about user - logout")
 def test_get_logout(headers):
     status, result = user.get_user_logout(headers)
     assert status == 200
