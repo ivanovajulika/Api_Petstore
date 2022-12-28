@@ -78,6 +78,7 @@ user = User()
 #     status, result = user.get_user_by_username(name)
 #     assert status == 404
 
+
 def test_put_user(random_user_id, random_name, headers):
     """Create user, update user, verifies if the user is updated"""
     data = {"id": random_user_id, "username": random_name}
@@ -86,7 +87,9 @@ def test_put_user(random_user_id, random_name, headers):
     print(random_name, random_user_id)
     print(result['message'])
     data = {"username": 'Mikelandjelo'}
-    status, result = user.put_update_user_by_username(username=random_name, headers=headers, data=data)
+    status, result = user.put_update_user_by_username(
+        username=random_name, headers=headers, data=data
+    )
     assert status == 200
     print(result)
     status, result = user.get_user_by_username(username='Mikelandjelo')
