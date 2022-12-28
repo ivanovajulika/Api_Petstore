@@ -166,3 +166,12 @@ class User:
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"DELETE request from url {response.request.path_url}"):
             return status, result
+
+    def put_update_user_by_username(self, username, headers, data):
+        """PUT/user/{username} Update user by username"""
+        response = requests.put(f"{url}/user/{username}", data=json.dumps(data), headers=headers)
+        status = response.status_code
+        result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
+        with allure.step(f"DELETE request from url {response.request.path_url}"):
+            return status, result
