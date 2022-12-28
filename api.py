@@ -148,3 +148,21 @@ class User:
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
             return status, result
+
+    def get_user_by_username(self, username):
+        """GET/user/{username} Find user by username"""
+        response = requests.get(f"{url}/user/{username}")
+        status = response.status_code
+        result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
+        with allure.step(f"GET request from url {response.request.path_url}"):
+            return status, result
+
+    def delete_user_by_username(self, username, headers):
+        """DELETE/user/{username} Delete user by username"""
+        response = requests.delete(f"{url}/user/{username}", headers=headers)
+        status = response.status_code
+        result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
+        with allure.step(f"DELETE request from url {response.request.path_url}"):
+            return status, result
