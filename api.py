@@ -177,3 +177,21 @@ class User:
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"DELETE request from url {response.request.path_url}"):
             return status, result
+
+    def get_user_login(self, params, headers):
+        """GET/user/login"""
+        response = requests.get(f"{url}/user/login", params=params, headers=headers)
+        status = response.status_code
+        result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
+        with allure.step(f"GET request from url {response.request.path_url}"):
+            return status, result
+
+    def get_user_logout(self, headers):
+        """GET/user/login"""
+        response = requests.get(f"{url}/user/logout", headers=headers)
+        status = response.status_code
+        result = response.json()
+        logging.info(f"{response.status_code} => {response.ok}")
+        with allure.step(f"GET request from url {response.request.path_url}"):
+            return status, result
