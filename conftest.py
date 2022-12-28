@@ -57,3 +57,4 @@ def put_data(id, random_name, request):
 @pytest.fixture
 def headers():
     return {"accept": "application/json", "Content-Type": "application/json"}
+
