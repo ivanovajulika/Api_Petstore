@@ -4,3 +4,4 @@ __pycache__
 venv/
 allure-results/
 tests/allure-results/
+.pytest_cache
