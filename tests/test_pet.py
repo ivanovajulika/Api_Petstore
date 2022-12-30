@@ -162,9 +162,9 @@ class TestPets:
         "TC_001.04.04 | Pet > {petId}> POST 'Updates a pet in the store with invalid data'"
     )
     def test_post_update_pet_invalid_data(
-        self, id, random_name, name, headers, update_data, pet_status
+        self, id, random_name, name, headers, pet_status
     ):
-        """This test used parametrize fixture here, 126 tests will run.
+        """This test used parametrize fixture here, 42 tests will run.
         Finds a pet by id, if there is a pet with this id, if there is no pet,
         then creates a pet finds it by id, update this pet by id and
         checks if the pet's name and status have been updated"""
@@ -172,14 +172,15 @@ class TestPets:
         if status != 200:
             data = {"id": id, "name": random_name, "status": "available"}
             status, result = pet.post_add_new_pet(data, headers)
-        update_data = {"id": id, "name": name, "status": pet_status}
-        status, result = pet.post_update_pet(id, data=update_data)
+        data = {"id": id, "name": name, "status": pet_status}
+        status, result = pet.post_update_pet(id, data=data)
         assert status == 200
-        # with pytest.raises(AssertionError):
         status, result = pet.get_pet_by_id(id)
-        # pytest.fail("Name or status not update")
-        assert result["name"] == update_data["name"]
-        assert result["status"] == update_data["status"]
+        with pytest.raises(AssertionError):
+            assert result["name"] == data["name"]
+            pytest.fail("Name not updated")
+            assert result["status"] == data["status"]
+            pytest.fail("Status not updated")
 
     @allure.feature("TS_001.04.00 | Pet > {petId}")
     @allure.story(
