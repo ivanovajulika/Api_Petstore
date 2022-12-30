@@ -80,7 +80,7 @@ class TestPets:
             "@",
             "   ",
             "beautifull",
-            pytest.param("string", marks=pytest.mark.xfail(reason="problem_user")),
+            pytest.param("string", marks=pytest.mark.xfail(reason="status is string")),
         ],
         ids=["empty", "simbol", "witespace", "non-existent status", "default"],
     )
