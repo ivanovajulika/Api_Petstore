@@ -1,5 +1,4 @@
 import allure
-
 from api import User
 import pytest
 import random
