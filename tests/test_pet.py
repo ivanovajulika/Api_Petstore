@@ -3,9 +3,15 @@ from api import Pet
 import pytest
 import allure
 import os
-
+import random
+import string
 
 pet = Pet()
+
+
+def max_random_name(num=100):
+    return ("".join(random.choice(string.ascii_lowercase) for _ in range(num))).title()
+
 
 """ You can run all tests at once by selecting a file
 pytest -s -v tests/test_pet.py """
@@ -19,7 +25,9 @@ class TestPets:
         ids=["available", "pending", "sold"],
     )
     @allure.feature("TS_001.02.00 | Pet > Add a new pet to the store")
-    @allure.story("TC_001.02.01| Pet> POST 'Add a new pet to the store with valid name and id'")
+    @allure.story(
+        "TC_001.02.01| Pet> POST 'Add a new pet to the store with valid name and id'"
+    )
     def test_post_add_new_pet(self, random_id, random_name, status, headers):
         data = {"id": random_id, "name": random_name, "status": status}
         status, result = pet.post_add_new_pet(data, headers)
@@ -35,7 +43,7 @@ class TestPets:
             data = {"id": id, "name": random_name, "status": "available"}
             pet.post_add_new_pet(data, headers)
             status, result = pet.get_pet_by_id(id)
-            assert result["id"] == data['id']
+            assert result["id"] == data["id"]
         assert status == 200
         assert result["id"] == id
 
@@ -94,8 +102,11 @@ class TestPets:
         assert result == []
 
     @allure.feature("TS_001.04.00 | Pet > {petId}")
-    @allure.story("TC_001.04.01 | Pet > {petId}> POST 'Updates a pet in the store with valid data'")
+    @allure.story(
+        "TC_001.04.01 | Pet > {petId}> POST 'Updates a pet in the store with valid data'"
+    )
     def test_post_update_pet_valid_data(self, id, random_name, headers, update_data):
+        """This test used parametrize fixture here, 3 tests will run"""
         status, result = pet.get_pet_by_id(id)
         if status != 200:
             data = {"id": id, "name": random_name, "status": "available"}
@@ -104,15 +115,49 @@ class TestPets:
         assert status == 200
         status, result = pet.get_pet_by_id(id)
         assert result["name"] == update_data["name"]
-        print(result["name"])
+        assert result["status"] == update_data["status"]
 
+    @pytest.mark.parametrize(
+        "status",
+        [
+            "",
+            "@",
+            "   ",
+            "beautifull",
+            pytest.param("string", marks=pytest.mark.xfail(reason="status is string")),
+        ],
+        ids=[
+            "invalid_empty",
+            "invalid_simbol",
+            "invalid_witespace",
+            "invalid_non-existent status",
+            "invalid_default",
+        ],
+    )
+    @pytest.mark.parametrize(
+        "name",
+        ["", "Анролрa", "-6", "67 97 ", "$%^", max_random_name(1000)],
+        ids=[
+            "empty",
+            "russian_string",
+            "negative_integer",
+            "whitespace_integer",
+            "simbols",
+            "very_long_name",
+        ],
+    )
     @allure.feature("TS_001.04.00 | Pet > {petId}")
-    @allure.story("TC_001.04.04 | Pet > {petId}> POST 'Updates a pet in the store with invalid data'")
-    def test_post_update_pet_invalid_data(self, id, random_name, headers, update_data, status):
+    @allure.story(
+        "TC_001.04.04 | Pet > {petId}> POST 'Updates a pet in the store with invalid data'"
+    )
+    def test_post_update_pet_invalid_data(
+        self, id,random_name, name, headers, update_data, status
+    ):
         status, result = pet.get_pet_by_id(id)
         if status != 200:
-            data = {"id": id, "name": random_name, "status": status}
+            data = {"id": id, "name": random_name, "status": 'available'}
             status, result = pet.post_add_new_pet(data, headers)
+        update_data = {"id": id, "name": name, "status": status}
         status, result = pet.post_update_pet(id, data=update_data)
         assert status == 200
         status, result = pet.get_pet_by_id(id)
@@ -120,7 +165,9 @@ class TestPets:
         print(result["name"])
 
     @allure.feature("TS_001.04.00 | Pet > {petId}")
-    @allure.story("TC_001.04.01 | Pet > {petId}> PUT 'Updates a pet in the store with valid data'")
+    @allure.story(
+        "TC_001.04.01 | Pet > {petId}> PUT 'Updates a pet in the store with valid data'"
+    )
     def test_put_update_pet(self, id, put_data, headers):
         status, result = pet.put_update_pet(put_data, headers)
         assert status == 200
