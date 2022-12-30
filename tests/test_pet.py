@@ -68,9 +68,9 @@ class TestPets:
         ids=["available", "pending", "sold"],
     )
     @allure.feature("TS_001.03.00 | Pet > {petId}/findByStatus")
-    @allure.feature("TC_001.03.01 PET> GET 'Find pets by  valid status'")
+    @allure.story("TC_001.03.01 PET> GET 'Find pets by valid status'")
     def test_get_pet_valid_status(self, status):
-        """Parameterization is used here, 4 tests will run"""
+        """Parameterization is used here, 3 tests will run"""
         status_code, result = pet.get_pet_by_status(params=status)
         assert status_code == 200
 
@@ -86,13 +86,15 @@ class TestPets:
         ids=["empty", "simbol", "witespace", "non-existent status", "default"],
     )
     @allure.feature("TS_001.03.00 | Pet > {petId}/findByStatus")
-    @allure.story("TC_001.03.02 PET> GET 'Find pets by  invalid status'")
+    @allure.story("TC_001.03.02 PET> GET 'Find pets by invalid status'")
     def test_get_pet_invalid_status(self, status):
-        """Parameterization is used here, 4 tests will run"""
+        """Parameterization is used here, 5 tests will run"""
         status_code, result = pet.get_pet_by_status(params=status)
         assert status_code == 200
         assert result == []
 
+    @allure.feature("TS_001.03.00 | Pet > {petId}/findByStatus")
+    @allure.story("TC_001.03.02 PET> POST 'Update pets by  invalid status'")
     def test_post_update_pet(self, id, random_name, headers, update_data):
         status, result = pet.get_pet_by_id(id)
         if status != 200:
