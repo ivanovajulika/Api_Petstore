@@ -1,5 +1,4 @@
 from requests import JSONDecodeError
-
 from api import Pet
 import pytest
 import allure
@@ -26,7 +25,6 @@ class TestPets:
         status, result = pet.post_add_new_pet(data, headers)
         assert status == 200
         assert result["name"] == data["name"]
-        print(result)
         pet.delete_pet(random_id, headers=headers)
 
     @allure.story("TS_001.04.00 | Pet > {petId}")
@@ -37,40 +35,62 @@ class TestPets:
             data = {"id": id, "name": random_name, "status": "available"}
             pet.post_add_new_pet(data, headers)
             status, result = pet.get_pet_by_id(id)
-        print(result)
         assert status == 200
         assert result["id"] == data["id"]
 
     @allure.story("TS_001.04.00 | Pet > {petId}")
     @allure.description("TC_001.04.08| Pet > {petId}> GET 'Find pet by invalid ID'")
     @pytest.mark.parametrize(
-        "pet_id", ["abc", "абв", "   ", '@'], ids=["string", "kirill_string", "witespace", 'simbol']
+        "pet_id",
+        ["abc", "абв", "   ", "@"],
+        ids=["string", "kirill_string", "witespace", "simbol"],
     )
     def test_get_pet_invalid_id(self, pet_id, random_name, headers):
+        """Parameterization is used here, 4 tests will run"""
         status, result = pet.get_pet_by_id(pet_id)
-        print(result)
         assert status == 404
 
     @allure.story("TS_001.04.00 | Pet > {petId}")
-    @allure.description("TC_001.04.09| Pet > {petId}> GET 'Find pet by invalid ID (ID is empty)'")
+    @allure.description(
+        "TC_001.04.09| Pet > {petId}> GET 'Find pet by invalid ID (ID is empty)'"
+    )
     @pytest.mark.parametrize("pet_id", [""], ids=["empty"])
     def test_get_pet_id_is_empty(self, pet_id, random_name, headers):
         with pytest.raises(JSONDecodeError):
             status, result = pet.get_pet_by_id(pet_id)
             pytest.fail("ID is empty")
-            print(result)
             assert status == 405
 
     @pytest.mark.parametrize(
         "status",
-        ["", "available", "pending", "sold"],
-        ids=["empty", "available", "pending", "sold"],
+        ["available", "pending", "sold"],
+        ids=["available", "pending", "sold"],
     )
+    @allure.story("TS_001.03.00 | Pet > {petId}/findByStatus")
+    @allure.description("TC_001.03.01 PET> GET 'Find pets by  valid status'")
     def test_get_pet_valid_status(self, status):
         """Parameterization is used here, 4 tests will run"""
         status_code, result = pet.get_pet_by_status(params=status)
         assert status_code == 200
-        print(result)
+
+    @pytest.mark.parametrize(
+        "status",
+        [
+            "",
+            "@",
+            "   ",
+            "beautifull",
+            pytest.param("string", marks=pytest.mark.xfail(reason="problem_user")),
+        ],
+        ids=["empty", "simbol", "witespace", "non-existent status", "default"],
+    )
+    @allure.story("TS_001.03.00 | Pet > {petId}/findByStatus")
+    @allure.description("TC_001.03.02 PET> GET 'Find pets by  invalid status'")
+    def test_get_pet_invalid_status(self, status):
+        """Parameterization is used here, 4 tests will run"""
+        status_code, result = pet.get_pet_by_status(params=status)
+        assert status_code == 200
+        assert result == []
 
     def test_post_update_pet(self, id, random_name, headers, update_data):
         status, result = pet.get_pet_by_id(id)
