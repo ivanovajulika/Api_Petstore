@@ -56,7 +56,7 @@ class TestPets:
     @pytest.mark.parametrize(
         "pet_id",
         ["abc", "абв", "   ", "@"],
-        ids=["string", "kirill_string", "witespace", "simbol"],
+        ids=["string", "rus_string", "whitespace", "symbol"],
     )
     def test_get_pet_invalid_id(self, pet_id, random_name, headers):
         """Parameterization is used here, 4 tests will run"""
@@ -127,31 +127,24 @@ class TestPets:
 
     @pytest.mark.parametrize(
         "pet_status",
-        [
-            "",
-            "@",
-            "   ",
-            "beautifully",
-            "sold",
-        ],
+        ["", "@", "   ", "beautifully"],
         ids=[
             "invalid_empty",
             "invalid_symbol",
             "invalid_whitespace",
             "invalid_non-existent status",
-            "valid_status",
         ],
     )
     @pytest.mark.parametrize(
         "name",
         ["", "Анролрa", "-6", "67 97 ", "$%^", max_random_name(1000), "Doggie"],
         ids=[
-            "empty",
-            "russian_string",
-            "negative_integer",
-            "whitespace_integer",
-            "simbols",
-            "very_long_name",
+            "invalid_empty",
+            "invalid_russian_string",
+            "invalid_negative_integer",
+            "invalid_whitespace_integer",
+            "invalid_simbols",
+            "invalid_very_long_name",
             "valid_name",
         ],
     )
@@ -162,7 +155,7 @@ class TestPets:
     def test_post_update_pet_invalid_data(
         self, id, random_name, name, headers, pet_status
     ):
-        """This test used parametrize fixture here, 42 tests will run.
+        """This test used parametrize fixture here, 35 tests will run.
         Finds a pet by id, if there is a pet with this id, if there is no pet,
         then creates a pet finds it by id, update this pet by id and
         checks if the pet's name and status have been updated"""
@@ -176,7 +169,6 @@ class TestPets:
         status, result = pet.get_pet_by_id(id)
         with pytest.raises(AssertionError):
             assert result["name"] == data["name"]
-            pytest.fail("Name not updated")
             assert result["status"] == data["status"]
             pytest.fail("Status not updated")
 
