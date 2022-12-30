@@ -95,10 +95,23 @@ class TestPets:
 
     @allure.feature("TS_001.04.00 | Pet > {petId}")
     @allure.story("TC_001.04.01 | Pet > {petId}> POST 'Updates a pet in the store with valid data'")
-    def test_post_update_pet(self, id, random_name, headers, update_data):
+    def test_post_update_pet_valid_data(self, id, random_name, headers, update_data):
         status, result = pet.get_pet_by_id(id)
         if status != 200:
             data = {"id": id, "name": random_name, "status": "available"}
+            status, result = pet.post_add_new_pet(data, headers)
+        status, result = pet.post_update_pet(id, data=update_data)
+        assert status == 200
+        status, result = pet.get_pet_by_id(id)
+        assert result["name"] == update_data["name"]
+        print(result["name"])
+
+    @allure.feature("TS_001.04.00 | Pet > {petId}")
+    @allure.story("TC_001.04.04 | Pet > {petId}> POST 'Updates a pet in the store with invalid data'")
+    def test_post_update_pet_invalid_data(self, id, random_name, headers, update_data, status):
+        status, result = pet.get_pet_by_id(id)
+        if status != 200:
+            data = {"id": id, "name": random_name, "status": status}
             status, result = pet.post_add_new_pet(data, headers)
         status, result = pet.post_update_pet(id, data=update_data)
         assert status == 200
