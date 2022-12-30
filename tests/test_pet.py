@@ -35,8 +35,9 @@ class TestPets:
             data = {"id": id, "name": random_name, "status": "available"}
             pet.post_add_new_pet(data, headers)
             status, result = pet.get_pet_by_id(id)
+            assert result["id"] == data['id']
         assert status == 200
-        assert result["id"] == data["id"]
+        assert result["id"] == id
 
     @allure.story("TS_001.04.00 | Pet > {petId}")
     @allure.description("TC_001.04.08| Pet > {petId}> GET 'Find pet by invalid ID'")
