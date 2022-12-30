@@ -92,10 +92,10 @@ class TestPets:
             "",
             "@",
             "   ",
-            "beautifull",
+            "beautifully",
             pytest.param("string", marks=pytest.mark.xfail(reason="status is string")),
         ],
-        ids=["empty", "simbol", "witespace", "non-existent status", "default"],
+        ids=["empty", "symbol", "whitespace", "non-existent status", "default"],
     )
     @allure.feature("TS_001.03.00 | Pet > {petId}/findByStatus")
     @allure.story("TC_001.03.02 PET> GET 'Find pets by invalid status'")
@@ -131,16 +131,14 @@ class TestPets:
             "",
             "@",
             "   ",
-            "beautifull",
-            pytest.param("string", marks=pytest.mark.xfail(reason="status is string")),
+            "beautifully",
             "sold",
         ],
         ids=[
             "invalid_empty",
-            "invalid_simbol",
-            "invalid_witespace",
+            "invalid_symbol",
+            "invalid_whitespace",
             "invalid_non-existent status",
-            "invalid_default",
             "valid_status",
         ],
     )
