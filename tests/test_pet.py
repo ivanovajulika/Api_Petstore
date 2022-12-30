@@ -133,7 +133,7 @@ class TestPets:
             "   ",
             "beautifull",
             pytest.param("string", marks=pytest.mark.xfail(reason="status is string")),
-            'sold'
+            "sold",
         ],
         ids=[
             "invalid_empty",
@@ -141,12 +141,12 @@ class TestPets:
             "invalid_witespace",
             "invalid_non-existent status",
             "invalid_default",
-            'valid_status'
+            "valid_status",
         ],
     )
     @pytest.mark.parametrize(
         "name",
-        ["", "Анролрa", "-6", "67 97 ", "$%^", max_random_name(1000), 'Doggie'],
+        ["", "Анролрa", "-6", "67 97 ", "$%^", max_random_name(1000), "Doggie"],
         ids=[
             "empty",
             "russian_string",
@@ -154,7 +154,7 @@ class TestPets:
             "whitespace_integer",
             "simbols",
             "very_long_name",
-            'valid-name'
+            "valid_name",
         ],
     )
     @allure.feature("TS_001.04.00 | Pet > {petId}")
@@ -175,22 +175,24 @@ class TestPets:
         update_data = {"id": id, "name": name, "status": pet_status}
         status, result = pet.post_update_pet(id, data=update_data)
         assert status == 200
-        with pytest.raises(AssertionError):
-            status, result = pet.get_pet_by_id(id)
-            pytest.fail("Name or status not update")
-            assert result["name"] == update_data["name"]
-            assert result["status"] == update_data["status"]
+        # with pytest.raises(AssertionError):
+        status, result = pet.get_pet_by_id(id)
+        # pytest.fail("Name or status not update")
+        assert result["name"] == update_data["name"]
+        assert result["status"] == update_data["status"]
 
     @allure.feature("TS_001.04.00 | Pet > {petId}")
     @allure.story(
         "TC_001.04.01 | Pet > {petId}> PUT 'Updates a pet in the store with valid data'"
     )
     def test_put_update_pet(self, id, put_data, headers):
+        """This test used parametrize fixture here, 3 tests will run.
+        Update a pet by id,
+        checks if the pet's name have been updated"""
         status, result = pet.put_update_pet(put_data, headers)
         assert status == 200
         status, result = pet.get_pet_by_id(id)
         assert result["name"] == put_data["name"]
-        print(result["name"])
 
     def test_delete_pet(self, id, random_name, headers):
         status, result = pet.get_pet_by_id(id)
