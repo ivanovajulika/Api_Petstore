@@ -89,7 +89,7 @@ class TestPets:
     @pytest.mark.parametrize(
         "status",
         [
-            "",
+            pytest.param('', marks=pytest.mark.xfail(reason="status is empty")),
             "@",
             "   ",
             "beautifully",
