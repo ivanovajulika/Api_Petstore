@@ -165,9 +165,7 @@ class TestPets:
         assert status == 200
         status, result = pet.get_pet_by_id(id)
         assert result["name"] == data["name"]
-        print(result["name"])
         assert result["status"] == data["status"]
-        print(result["status"])
 
     @pytest.mark.parametrize("pet_status", [""], ids=["invalid_empty"])
     @pytest.mark.parametrize(
