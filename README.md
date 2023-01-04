@@ -21,7 +21,7 @@ ___
 > ***Do not forget to install Docker Desktop***
 
 ### **Docker commands for your terminal**
-    -docker bild -t image_name .(for example: docker bild -t api_pytest_runner .)
+    -docker build -t image_name .(for example: docker build -t api_pytest_runner .)
 > ***This command create an image based on a dockerfile***
 
     -docker run image_name(for example: docker run api_pytest_runner)
