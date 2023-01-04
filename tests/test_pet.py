@@ -127,9 +127,8 @@ class TestPets:
 
     @pytest.mark.parametrize(
         "pet_status",
-        ['sold', "@", "   ", "beautifully"],
+        ["@", "   ", "beautifully"],
         ids=[
-            "valid_status",
             "invalid_symbol",
             "invalid_whitespace",
             "invalid_non-existent status",
@@ -137,14 +136,13 @@ class TestPets:
     )
     @pytest.mark.parametrize(
         "name",
-        ["Анролрa", "-6", "67 97 ", "$%^", max_random_name(1000), "Doggie"],
+        ["Анролрa", "-6", "67 97 ", "$%^", max_random_name(1000)],
         ids=[
             "invalid_russian_string",
             "invalid_negative_integer",
             "invalid_whitespace_integer",
-            "invalid_simbols",
-            "invalid_very_long_name",
-            "valid_name",
+            "invalid_symbols",
+            "invalid_very_long_name"
         ],
     )
     @allure.feature("TS_001.04.00 | Pet > {petId}")
@@ -154,7 +152,7 @@ class TestPets:
     def test_post_update_pet_invalid_data(
         self, id, random_name, name, headers, pet_status
     ):
-        """This test used parametrize fixture here, 24 tests will run.
+        """This test used parametrize fixture here, 15 tests will run.
         Finds a pet by id, if there is a pet with this id, if there is no pet,
         then creates a pet finds it by id, update this pet by wrong id and
         checks if the pet's name and status have been not updated"""
@@ -167,7 +165,9 @@ class TestPets:
         assert status == 200
         status, result = pet.get_pet_by_id(id)
         assert result["name"] == data["name"]
+        print(result["name"])
         assert result["status"] == data["status"]
+        print(result["status"])
 
     @pytest.mark.parametrize("pet_status", [""], ids=["invalid_empty"])
     @pytest.mark.parametrize(
