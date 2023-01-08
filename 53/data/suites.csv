@@ -1,0 +1,247 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Jan 08 06:40:35 GMT 2023","Sun Jan 08 06:40:36 GMT 2023","167","tests","test_user","","","","test_get_login_negative[long pass-long name]",""
+"passed","Sun Jan 08 06:40:28 GMT 2023","Sun Jan 08 06:40:28 GMT 2023","171","tests","test_user","","","","test_get_login_positive[upper-random]",""
+"skipped","Sun Jan 08 06:40:25 GMT 2023","Sun Jan 08 06:40:25 GMT 2023","166","tests","test_user","","","","test_post_new_user_negative[whitespace_integer-string]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:18 GMT 2023","Sun Jan 08 06:40:18 GMT 2023","333","tests","test_pet","TestPets","","","test_put_update_pet_without_id[sold]","This test used parametrize fixture here, 3 tests will run.
+        Update pet name by name and status using PUT method,
+        checks that the pet's name has been updated"
+"skipped","Sun Jan 08 06:40:25 GMT 2023","Sun Jan 08 06:40:25 GMT 2023","166","tests","test_user","","","","test_post_new_user_negative[negative_integer-simbols]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:15 GMT 2023","Sun Jan 08 06:40:16 GMT 2023","498","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data_2[valid_name-invalid_empty]","This test used parametrize fixture here, 7 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have not been updated"
+"passed","Sun Jan 08 06:40:00 GMT 2023","Sun Jan 08 06:40:00 GMT 2023","165","tests","test_pet","TestPets","","","test_get_pet_valid_id","Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id"
+"passed","Sun Jan 08 06:40:10 GMT 2023","Sun Jan 08 06:40:11 GMT 2023","504","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_symbols-invalid_non-existent status]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"skipped","Sun Jan 08 06:40:24 GMT 2023","Sun Jan 08 06:40:24 GMT 2023","167","tests","test_user","","","","test_post_new_user_negative[negative_integer-empty]","Creates new user, verifies if the user is created"
+"skipped","Sun Jan 08 06:40:25 GMT 2023","Sun Jan 08 06:40:25 GMT 2023","166","tests","test_user","","","","test_post_new_user_negative[whitespace_integer-negative]","Creates new user, verifies if the user is created"
+"skipped","Sun Jan 08 06:40:24 GMT 2023","Sun Jan 08 06:40:25 GMT 2023","165","tests","test_user","","","","test_post_new_user_negative[negative_integer-negative]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:01 GMT 2023","Sun Jan 08 06:40:01 GMT 2023","203","tests","test_pet","TestPets","","","test_get_pet_invalid_id[symbol]","Parameterization is used here, 4 tests will run
+        Trying to find a pet by invalid id"
+"passed","Sun Jan 08 06:40:10 GMT 2023","Sun Jan 08 06:40:10 GMT 2023","501","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_symbols-invalid_whitespace]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"passed","Sun Jan 08 06:40:14 GMT 2023","Sun Jan 08 06:40:15 GMT 2023","498","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data_2[invalid_simbols-invalid_empty]","This test used parametrize fixture here, 7 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have not been updated"
+"passed","Sun Jan 08 06:40:28 GMT 2023","Sun Jan 08 06:40:28 GMT 2023","167","tests","test_user","","","","test_get_login_positive[upper-lower]",""
+"skipped","Sun Jan 08 06:40:22 GMT 2023","Sun Jan 08 06:40:23 GMT 2023","171","tests","test_user","","","","test_post_new_user_negative[empty-empty]","Creates new user, verifies if the user is created"
+"skipped","Sun Jan 08 06:40:25 GMT 2023","Sun Jan 08 06:40:25 GMT 2023","168","tests","test_user","","","","test_post_new_user_negative[whitespace_integer-empty]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:20 GMT 2023","Sun Jan 08 06:40:21 GMT 2023","501","tests","test_store","","","","test_delete_order_by_id","Delete an existing order"
+"passed","Sun Jan 08 06:40:17 GMT 2023","Sun Jan 08 06:40:18 GMT 2023","333","tests","test_pet","TestPets","","","test_put_update_pet_without_id[pending]","This test used parametrize fixture here, 3 tests will run.
+        Update pet name by name and status using PUT method,
+        checks that the pet's name has been updated"
+"passed","Sun Jan 08 06:40:05 GMT 2023","Sun Jan 08 06:40:06 GMT 2023","525","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_russian_string-invalid_whitespace]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"passed","Sun Jan 08 06:40:37 GMT 2023","Sun Jan 08 06:40:37 GMT 2023","166","tests","test_user","","","","test_get_logout",""
+"passed","Sun Jan 08 06:40:31 GMT 2023","Sun Jan 08 06:40:31 GMT 2023","166","tests","test_user","","","","test_get_login_negative[backspace-empty]",""
+"passed","Sun Jan 08 06:40:00 GMT 2023","Sun Jan 08 06:40:01 GMT 2023","167","tests","test_pet","TestPets","","","test_get_pet_invalid_id[rus_string]","Parameterization is used here, 4 tests will run
+        Trying to find a pet by invalid id"
+"passed","Sun Jan 08 06:40:14 GMT 2023","Sun Jan 08 06:40:14 GMT 2023","499","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data_2[invalid_whitespace_integer-invalid_empty]","This test used parametrize fixture here, 7 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have not been updated"
+"skipped","Sun Jan 08 06:40:27 GMT 2023","Sun Jan 08 06:40:27 GMT 2023","167","tests","test_user","","","","test_post_new_user_negative[simbols-simbols]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:35 GMT 2023","Sun Jan 08 06:40:35 GMT 2023","167","tests","test_user","","","","test_get_login_negative[long pass-empty]",""
+"passed","Sun Jan 08 06:40:08 GMT 2023","Sun Jan 08 06:40:09 GMT 2023","493","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_whitespace_integer-invalid_whitespace]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"passed","Sun Jan 08 06:40:33 GMT 2023","Sun Jan 08 06:40:33 GMT 2023","166","tests","test_user","","","","test_get_login_negative[one int-empty]",""
+"passed","Sun Jan 08 06:40:32 GMT 2023","Sun Jan 08 06:40:33 GMT 2023","167","tests","test_user","","","","test_get_login_negative[@-long name]",""
+"passed","Sun Jan 08 06:40:20 GMT 2023","Sun Jan 08 06:40:20 GMT 2023","166","tests","test_store","","","","test_get_pet_inventories","Returns the list of pets, verifies if there are animals available for an order"
+"passed","Sun Jan 08 06:40:19 GMT 2023","Sun Jan 08 06:40:20 GMT 2023","240","tests","test_pet","TestPets","","","test_upload_image_path",""
+"passed","Sun Jan 08 06:40:36 GMT 2023","Sun Jan 08 06:40:36 GMT 2023","168","tests","test_user","","","","test_get_login_negative[very long pass-int]",""
+"passed","Sun Jan 08 06:40:30 GMT 2023","Sun Jan 08 06:40:30 GMT 2023","167","tests","test_user","","","","test_get_login_negative[empty-backspace]",""
+"passed","Sun Jan 08 06:40:31 GMT 2023","Sun Jan 08 06:40:32 GMT 2023","167","tests","test_user","","","","test_get_login_negative[backspace-very long name]",""
+"passed","Sun Jan 08 06:40:29 GMT 2023","Sun Jan 08 06:40:29 GMT 2023","166","tests","test_user","","","","test_get_login_positive[lower-upper]",""
+"skipped","Sun Jan 08 06:40:23 GMT 2023","Sun Jan 08 06:40:23 GMT 2023","170","tests","test_user","","","","test_post_new_user_negative[russian_string-empty]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:11 GMT 2023","Sun Jan 08 06:40:11 GMT 2023","496","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_very_long_name-invalid_symbol]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"passed","Sun Jan 08 06:40:08 GMT 2023","Sun Jan 08 06:40:08 GMT 2023","497","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_whitespace_integer-invalid_symbol]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"skipped","Sun Jan 08 06:40:23 GMT 2023","Sun Jan 08 06:40:23 GMT 2023","165","tests","test_user","","","","test_post_new_user_negative[empty-string]","Creates new user, verifies if the user is created"
+"skipped","Sun Jan 08 06:40:27 GMT 2023","Sun Jan 08 06:40:27 GMT 2023","166","tests","test_user","","","","test_post_new_user_negative[very_long_name-empty]","Creates new user, verifies if the user is created"
+"skipped","Sun Jan 08 06:40:26 GMT 2023","Sun Jan 08 06:40:27 GMT 2023","167","tests","test_user","","","","test_post_new_user_negative[simbols-whitespace]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:05 GMT 2023","Sun Jan 08 06:40:05 GMT 2023","497","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_russian_string-invalid_symbol]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"passed","Sun Jan 08 06:40:36 GMT 2023","Sun Jan 08 06:40:37 GMT 2023","167","tests","test_user","","","","test_get_login_negative[very long pass-long name]",""
+"skipped","Sun Jan 08 06:40:18 GMT 2023","Sun Jan 08 06:40:18 GMT 2023","167","tests","test_pet","TestPets","","","test_put_update_pet_invalid_id[available]","This test used parametrize fixture here, 3 tests will run.
+        Update pet name by invalid id using PUT method,
+        checks that the pet's name has been updated"
+"passed","Sun Jan 08 06:40:02 GMT 2023","Sun Jan 08 06:40:03 GMT 2023","166","tests","test_pet","TestPets","","","test_get_pet_invalid_status[non-existent status]","Parameterization is used here, 5 tests will run.
+        Returns an empty list as there are no pets with that status"
+"passed","Sun Jan 08 06:40:12 GMT 2023","Sun Jan 08 06:40:13 GMT 2023","499","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data_2[invalid_empty-invalid_empty]","This test used parametrize fixture here, 7 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have not been updated"
+"skipped","Sun Jan 08 06:40:24 GMT 2023","Sun Jan 08 06:40:24 GMT 2023","165","tests","test_user","","","","test_post_new_user_negative[russian_string-simbols]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:35 GMT 2023","Sun Jan 08 06:40:35 GMT 2023","166","tests","test_user","","","","test_get_login_negative[kirill-very long name]",""
+"passed","Sun Jan 08 06:40:29 GMT 2023","Sun Jan 08 06:40:29 GMT 2023","165","tests","test_user","","","","test_get_login_positive[lower-lower]",""
+"passed","Sun Jan 08 06:40:32 GMT 2023","Sun Jan 08 06:40:32 GMT 2023","176","tests","test_user","","","","test_get_login_negative[@-int]",""
+"passed","Sun Jan 08 06:40:31 GMT 2023","Sun Jan 08 06:40:31 GMT 2023","167","tests","test_user","","","","test_get_login_negative[backspace-int]",""
+"passed","Sun Jan 08 06:40:28 GMT 2023","Sun Jan 08 06:40:29 GMT 2023","168","tests","test_user","","","","test_get_login_positive[upper-upper]",""
+"passed","Sun Jan 08 06:40:36 GMT 2023","Sun Jan 08 06:40:36 GMT 2023","175","tests","test_user","","","","test_get_login_negative[very long pass-empty]",""
+"passed","Sun Jan 08 06:40:02 GMT 2023","Sun Jan 08 06:40:02 GMT 2023","164","tests","test_pet","TestPets","","","test_get_pet_invalid_status[whitespace]","Parameterization is used here, 5 tests will run.
+        Returns an empty list as there are no pets with that status"
+"passed","Sun Jan 08 06:40:34 GMT 2023","Sun Jan 08 06:40:34 GMT 2023","167","tests","test_user","","","","test_get_login_negative[one int-very long name]",""
+"skipped","Sun Jan 08 06:40:23 GMT 2023","Sun Jan 08 06:40:24 GMT 2023","166","tests","test_user","","","","test_post_new_user_negative[russian_string-string]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:37 GMT 2023","Sun Jan 08 06:40:37 GMT 2023","169","tests","test_user","","","","test_get_login_negative[very long pass-very long name]",""
+"skipped","Sun Jan 08 06:40:27 GMT 2023","Sun Jan 08 06:40:27 GMT 2023","167","tests","test_user","","","","test_post_new_user_negative[very_long_name-string]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:07 GMT 2023","Sun Jan 08 06:40:08 GMT 2023","544","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_negative_integer-invalid_non-existent status]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"passed","Sun Jan 08 06:40:30 GMT 2023","Sun Jan 08 06:40:31 GMT 2023","169","tests","test_user","","","","test_get_login_negative[empty-very long name]",""
+"passed","Sun Jan 08 06:40:34 GMT 2023","Sun Jan 08 06:40:35 GMT 2023","165","tests","test_user","","","","test_get_login_negative[kirill-long name]",""
+"passed","Sun Jan 08 06:40:17 GMT 2023","Sun Jan 08 06:40:17 GMT 2023","333","tests","test_pet","TestPets","","","test_put_update_pet[sold]","This test used parametrize fixture here, 3 tests will run.
+        Update pet name by id using PUT method,
+        checks that the pet's name has been updated"
+"passed","Sun Jan 08 06:40:29 GMT 2023","Sun Jan 08 06:40:29 GMT 2023","167","tests","test_user","","","","test_get_login_positive[int-random]",""
+"passed","Sun Jan 08 06:40:36 GMT 2023","Sun Jan 08 06:40:36 GMT 2023","169","tests","test_user","","","","test_get_login_negative[very long pass-one simbol]",""
+"passed","Sun Jan 08 06:40:11 GMT 2023","Sun Jan 08 06:40:12 GMT 2023","498","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_very_long_name-invalid_whitespace]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"passed","Sun Jan 08 06:40:04 GMT 2023","Sun Jan 08 06:40:04 GMT 2023","494","tests","test_pet","TestPets","","","test_post_update_pet_valid_data[pending]","This test used parametrize fixture here, 3 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by id and
+        checks if the pet's name and status have been updated"
+"skipped","Sun Jan 08 06:40:03 GMT 2023","Sun Jan 08 06:40:03 GMT 2023","353","tests","test_pet","TestPets","","","test_get_pet_invalid_status[default]","Parameterization is used here, 5 tests will run.
+        Returns an empty list as there are no pets with that status"
+"passed","Sun Jan 08 06:40:33 GMT 2023","Sun Jan 08 06:40:33 GMT 2023","166","tests","test_user","","","","test_get_login_negative[one int-int]",""
+"skipped","Sun Jan 08 06:40:27 GMT 2023","Sun Jan 08 06:40:27 GMT 2023","165","tests","test_user","","","","test_post_new_user_negative[very_long_name-whitespace]","Creates new user, verifies if the user is created"
+"skipped","Sun Jan 08 06:40:18 GMT 2023","Sun Jan 08 06:40:18 GMT 2023","166","tests","test_pet","TestPets","","","test_put_update_pet_invalid_id[sold]","This test used parametrize fixture here, 3 tests will run.
+        Update pet name by invalid id using PUT method,
+        checks that the pet's name has been updated"
+"skipped","Sun Jan 08 06:40:24 GMT 2023","Sun Jan 08 06:40:24 GMT 2023","166","tests","test_user","","","","test_post_new_user_negative[russian_string-whitespace]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:12 GMT 2023","Sun Jan 08 06:40:12 GMT 2023","508","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_very_long_name-invalid_non-existent status]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"passed","Sun Jan 08 06:40:32 GMT 2023","Sun Jan 08 06:40:32 GMT 2023","173","tests","test_user","","","","test_get_login_negative[@-empty]",""
+"passed","Sun Jan 08 06:40:13 GMT 2023","Sun Jan 08 06:40:13 GMT 2023","496","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data_2[invalid_russian_string-invalid_empty]","This test used parametrize fixture here, 7 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have not been updated"
+"skipped","Sun Jan 08 06:40:26 GMT 2023","Sun Jan 08 06:40:26 GMT 2023","166","tests","test_user","","","","test_post_new_user_negative[simbols-string]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:36 GMT 2023","Sun Jan 08 06:40:36 GMT 2023","167","tests","test_user","","","","test_get_login_negative[very long pass-backspace]",""
+"passed","Sun Jan 08 06:40:32 GMT 2023","Sun Jan 08 06:40:32 GMT 2023","166","tests","test_user","","","","test_get_login_negative[@-backspace]",""
+"passed","Sun Jan 08 06:40:19 GMT 2023","Sun Jan 08 06:40:19 GMT 2023","497","tests","test_pet","TestPets","","","test_uploads_image",""
+"passed","Sun Jan 08 06:40:35 GMT 2023","Sun Jan 08 06:40:35 GMT 2023","167","tests","test_user","","","","test_get_login_negative[long pass-backspace]",""
+"passed","Sun Jan 08 06:40:00 GMT 2023","Sun Jan 08 06:40:00 GMT 2023","554","tests","test_pet","TestPets","","","test_post_add_new_pet[sold]","Creates a new pet, check if there is a pet with that name and that id"
+"passed","Sun Jan 08 06:40:16 GMT 2023","Sun Jan 08 06:40:16 GMT 2023","337","tests","test_pet","TestPets","","","test_put_update_pet[available]","This test used parametrize fixture here, 3 tests will run.
+        Update pet name by id using PUT method,
+        checks that the pet's name has been updated"
+"passed","Sun Jan 08 06:40:36 GMT 2023","Sun Jan 08 06:40:36 GMT 2023","168","tests","test_user","","","","test_get_login_negative[long pass-very long name]",""
+"skipped","Sun Jan 08 06:40:26 GMT 2023","Sun Jan 08 06:40:26 GMT 2023","166","tests","test_user","","","","test_post_new_user_negative[whitespace_integer-simbols]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:01 GMT 2023","Sun Jan 08 06:40:02 GMT 2023","272","tests","test_pet","TestPets","","","test_get_pet_valid_status[available]","Parameterization is used here, 3 tests will run"
+"passed","Sun Jan 08 06:40:29 GMT 2023","Sun Jan 08 06:40:30 GMT 2023","169","tests","test_user","","","","test_get_login_positive[int-upper]",""
+"passed","Sun Jan 08 06:40:32 GMT 2023","Sun Jan 08 06:40:32 GMT 2023","168","tests","test_user","","","","test_get_login_negative[@-one simbol]",""
+"passed","Sun Jan 08 06:40:35 GMT 2023","Sun Jan 08 06:40:35 GMT 2023","166","tests","test_user","","","","test_get_login_negative[long pass-one simbol]",""
+"skipped","Sun Jan 08 06:40:26 GMT 2023","Sun Jan 08 06:40:26 GMT 2023","165","tests","test_user","","","","test_post_new_user_negative[simbols-empty]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:00 GMT 2023","Sun Jan 08 06:40:00 GMT 2023","201","tests","test_pet","TestPets","","","test_get_pet_invalid_id[string]","Parameterization is used here, 4 tests will run
+        Trying to find a pet by invalid id"
+"passed","Sun Jan 08 06:40:33 GMT 2023","Sun Jan 08 06:40:33 GMT 2023","168","tests","test_user","","","","test_get_login_negative[@-very long name]",""
+"passed","Sun Jan 08 06:40:16 GMT 2023","Sun Jan 08 06:40:17 GMT 2023","333","tests","test_pet","TestPets","","","test_put_update_pet[pending]","This test used parametrize fixture here, 3 tests will run.
+        Update pet name by id using PUT method,
+        checks that the pet's name has been updated"
+"passed","Sun Jan 08 06:40:34 GMT 2023","Sun Jan 08 06:40:34 GMT 2023","168","tests","test_user","","","","test_get_login_negative[kirill-one simbol]",""
+"passed","Sun Jan 08 06:40:30 GMT 2023","Sun Jan 08 06:40:30 GMT 2023","167","tests","test_user","","","","test_get_login_negative[empty-empty]",""
+"passed","Sun Jan 08 06:40:29 GMT 2023","Sun Jan 08 06:40:29 GMT 2023","165","tests","test_user","","","","test_get_login_positive[lower-random]",""
+"skipped","Sun Jan 08 06:40:24 GMT 2023","Sun Jan 08 06:40:24 GMT 2023","168","tests","test_user","","","","test_post_new_user_negative[russian_string-negative]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:20 GMT 2023","Sun Jan 08 06:40:20 GMT 2023","501","tests","test_store","","","","test_get_order_by_id","Gets an order by ID, if order not found, create a new one."
+"passed","Sun Jan 08 06:40:33 GMT 2023","Sun Jan 08 06:40:33 GMT 2023","165","tests","test_user","","","","test_get_login_negative[one int-backspace]",""
+"passed","Sun Jan 08 06:40:07 GMT 2023","Sun Jan 08 06:40:07 GMT 2023","506","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_negative_integer-invalid_whitespace]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"passed","Sun Jan 08 06:40:04 GMT 2023","Sun Jan 08 06:40:05 GMT 2023","497","tests","test_pet","TestPets","","","test_post_update_pet_valid_data[sold]","This test used parametrize fixture here, 3 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by id and
+        checks if the pet's name and status have been updated"
+"passed","Sun Jan 08 06:40:35 GMT 2023","Sun Jan 08 06:40:35 GMT 2023","167","tests","test_user","","","","test_get_login_negative[long pass-int]",""
+"passed","Sun Jan 08 06:40:28 GMT 2023","Sun Jan 08 06:40:28 GMT 2023","504","tests","test_user","","","","test_put_user","Create user, update user, verifies if the user is updated"
+"skipped","Sun Jan 08 06:40:25 GMT 2023","Sun Jan 08 06:40:25 GMT 2023","168","tests","test_user","","","","test_post_new_user_negative[negative_integer-whitespace]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:06 GMT 2023","Sun Jan 08 06:40:07 GMT 2023","501","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_negative_integer-invalid_symbol]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"passed","Sun Jan 08 06:39:58 GMT 2023","Sun Jan 08 06:39:59 GMT 2023","576","tests","test_pet","TestPets","","","test_post_add_new_pet[available]","Creates a new pet, check if there is a pet with that name and that id"
+"passed","Sun Jan 08 06:40:30 GMT 2023","Sun Jan 08 06:40:30 GMT 2023","166","tests","test_user","","","","test_get_login_negative[empty-long name]",""
+"passed","Sun Jan 08 06:40:02 GMT 2023","Sun Jan 08 06:40:02 GMT 2023","195","tests","test_pet","TestPets","","","test_get_pet_valid_status[pending]","Parameterization is used here, 3 tests will run"
+"passed","Sun Jan 08 06:40:21 GMT 2023","Sun Jan 08 06:40:22 GMT 2023","669","tests","test_user","","","","test_post_new_user_positive[upper-random]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:09 GMT 2023","Sun Jan 08 06:40:10 GMT 2023","496","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_symbols-invalid_symbol]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"skipped","Sun Jan 08 06:40:23 GMT 2023","Sun Jan 08 06:40:23 GMT 2023","167","tests","test_user","","","","test_post_new_user_negative[empty-negative]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:02 GMT 2023","Sun Jan 08 06:40:02 GMT 2023","165","tests","test_pet","TestPets","","","test_get_pet_valid_status[sold]","Parameterization is used here, 3 tests will run"
+"passed","Sun Jan 08 06:40:13 GMT 2023","Sun Jan 08 06:40:14 GMT 2023","497","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data_2[invalid_negative_integer-invalid_empty]","This test used parametrize fixture here, 7 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have not been updated"
+"passed","Sun Jan 08 06:39:59 GMT 2023","Sun Jan 08 06:40:00 GMT 2023","614","tests","test_pet","TestPets","","","test_post_add_new_pet[pending]","Creates a new pet, check if there is a pet with that name and that id"
+"passed","Sun Jan 08 06:40:34 GMT 2023","Sun Jan 08 06:40:34 GMT 2023","166","tests","test_user","","","","test_get_login_negative[kirill-empty]",""
+"skipped","Sun Jan 08 06:40:26 GMT 2023","Sun Jan 08 06:40:26 GMT 2023","166","tests","test_user","","","","test_post_new_user_negative[simbols-negative]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:18 GMT 2023","Sun Jan 08 06:40:19 GMT 2023","499","tests","test_pet","TestPets","","","test_delete_pet",""
+"passed","Sun Jan 08 06:40:31 GMT 2023","Sun Jan 08 06:40:31 GMT 2023","169","tests","test_user","","","","test_get_login_negative[backspace-backspace]",""
+"passed","Sun Jan 08 06:40:01 GMT 2023","Sun Jan 08 06:40:01 GMT 2023","252","tests","test_pet","TestPets","","","test_get_pet_invalid_id[whitespace]","Parameterization is used here, 4 tests will run
+        Trying to find a pet by invalid id"
+"passed","Sun Jan 08 06:40:31 GMT 2023","Sun Jan 08 06:40:31 GMT 2023","167","tests","test_user","","","","test_get_login_negative[backspace-long name]",""
+"passed","Sun Jan 08 06:40:34 GMT 2023","Sun Jan 08 06:40:34 GMT 2023","169","tests","test_user","","","","test_get_login_negative[kirill-backspace]",""
+"passed","Sun Jan 08 06:40:22 GMT 2023","Sun Jan 08 06:40:22 GMT 2023","667","tests","test_user","","","","test_post_new_user_positive[lower-random]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:17 GMT 2023","Sun Jan 08 06:40:17 GMT 2023","353","tests","test_pet","TestPets","","","test_put_update_pet_without_id[available]","This test used parametrize fixture here, 3 tests will run.
+        Update pet name by name and status using PUT method,
+        checks that the pet's name has been updated"
+"passed","Sun Jan 08 06:40:33 GMT 2023","Sun Jan 08 06:40:33 GMT 2023","168","tests","test_user","","","","test_get_login_negative[one int-one simbol]",""
+"skipped","Sun Jan 08 06:40:27 GMT 2023","Sun Jan 08 06:40:28 GMT 2023","168","tests","test_user","","","","test_post_new_user_negative[very_long_name-simbols]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:02 GMT 2023","Sun Jan 08 06:40:02 GMT 2023","202","tests","test_pet","TestPets","","","test_get_pet_invalid_status[empty]","Parameterization is used here, 5 tests will run.
+        Returns an empty list as there are no pets with that status"
+"passed","Sun Jan 08 06:40:20 GMT 2023","Sun Jan 08 06:40:20 GMT 2023","167","tests","test_store","","","","test_post_new_order","Creates an order for a pet, verifies if the order is complete"
+"passed","Sun Jan 08 06:40:15 GMT 2023","Sun Jan 08 06:40:15 GMT 2023","499","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data_2[invalid_very_long_name-invalid_empty]","This test used parametrize fixture here, 7 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have not been updated"
+"skipped","Sun Jan 08 06:40:27 GMT 2023","Sun Jan 08 06:40:27 GMT 2023","164","tests","test_user","","","","test_post_new_user_negative[very_long_name-negative]","Creates new user, verifies if the user is created"
+"skipped","Sun Jan 08 06:40:18 GMT 2023","Sun Jan 08 06:40:18 GMT 2023","167","tests","test_pet","TestPets","","","test_put_update_pet_invalid_id[pending]","This test used parametrize fixture here, 3 tests will run.
+        Update pet name by invalid id using PUT method,
+        checks that the pet's name has been updated"
+"skipped","Sun Jan 08 06:40:23 GMT 2023","Sun Jan 08 06:40:23 GMT 2023","165","tests","test_user","","","","test_post_new_user_negative[empty-whitespace]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:09 GMT 2023","Sun Jan 08 06:40:09 GMT 2023","661","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_whitespace_integer-invalid_non-existent status]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"passed","Sun Jan 08 06:40:30 GMT 2023","Sun Jan 08 06:40:30 GMT 2023","166","tests","test_user","","","","test_get_login_negative[empty-one simbol]",""
+"passed","Sun Jan 08 06:40:29 GMT 2023","Sun Jan 08 06:40:29 GMT 2023","167","tests","test_user","","","","test_get_login_positive[int-lower]",""
+"passed","Sun Jan 08 06:40:03 GMT 2023","Sun Jan 08 06:40:04 GMT 2023","503","tests","test_pet","TestPets","","","test_post_update_pet_valid_data[available]","This test used parametrize fixture here, 3 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by id and
+        checks if the pet's name and status have been updated"
+"skipped","Sun Jan 08 06:40:25 GMT 2023","Sun Jan 08 06:40:26 GMT 2023","167","tests","test_user","","","","test_post_new_user_negative[whitespace_integer-whitespace]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:33 GMT 2023","Sun Jan 08 06:40:34 GMT 2023","167","tests","test_user","","","","test_get_login_negative[one int-long name]",""
+"passed","Sun Jan 08 06:40:30 GMT 2023","Sun Jan 08 06:40:30 GMT 2023","166","tests","test_user","","","","test_get_login_negative[empty-int]",""
+"passed","Sun Jan 08 06:40:31 GMT 2023","Sun Jan 08 06:40:31 GMT 2023","168","tests","test_user","","","","test_get_login_negative[backspace-one simbol]",""
+"skipped","Sun Jan 08 06:40:24 GMT 2023","Sun Jan 08 06:40:24 GMT 2023","166","tests","test_user","","","","test_post_new_user_negative[negative_integer-string]","Creates new user, verifies if the user is created"
+"passed","Sun Jan 08 06:40:02 GMT 2023","Sun Jan 08 06:40:02 GMT 2023","166","tests","test_pet","TestPets","","","test_get_pet_invalid_status[symbol]","Parameterization is used here, 5 tests will run.
+        Returns an empty list as there are no pets with that status"
+"passed","Sun Jan 08 06:40:01 GMT 2023","Sun Jan 08 06:40:01 GMT 2023","196","tests","test_pet","TestPets","","","test_get_pet_id_is_empty[empty]","Trying to find a pet by invalid id"
+"passed","Sun Jan 08 06:40:34 GMT 2023","Sun Jan 08 06:40:34 GMT 2023","167","tests","test_user","","","","test_get_login_negative[kirill-int]",""
+"passed","Sun Jan 08 06:40:06 GMT 2023","Sun Jan 08 06:40:06 GMT 2023","497","tests","test_pet","TestPets","","","test_post_update_pet_invalid_data[invalid_russian_string-invalid_non-existent status]","This test used parametrize fixture here, 15 tests will run.
+        Finds a pet by id, if there is a pet with this id, if there is no pet,
+        then creates a pet finds it by id, update this pet by wrong id and
+        checks if the pet's name and status have been not updated"
+"skipped","Sun Jan 08 06:40:23 GMT 2023","Sun Jan 08 06:40:23 GMT 2023","167","tests","test_user","","","","test_post_new_user_negative[empty-simbols]","Creates new user, verifies if the user is created"
