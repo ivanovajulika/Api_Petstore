@@ -59,7 +59,8 @@ class TestPets:
         ids=["string", "rus_string", "whitespace", "symbol"],
     )
     def test_get_pet_invalid_id(self, pet_id, random_name, headers):
-        """Parameterization is used here, 4 tests will run"""
+        """Parameterization is used here, 4 tests will run
+        Trying to find a pet by invalid id"""
         status, result = pet.get_pet_by_id(pet_id)
         assert status == 404
 
@@ -69,6 +70,7 @@ class TestPets:
     )
     @pytest.mark.parametrize("pet_id", [""], ids=["empty"])
     def test_get_pet_id_is_empty(self, pet_id, random_name, headers):
+        """Trying to find a pet by invalid id"""
         with pytest.raises(JSONDecodeError):
             status, result = pet.get_pet_by_id(pet_id)
             pytest.fail("ID is empty")
@@ -207,18 +209,33 @@ class TestPets:
 
     @allure.feature("TS_001.04.00 | Pet > {petId}")
     @allure.story(
-        "TC_001.04.01 | Pet > {petId}> PUT 'Updates a pet in the store with valid data'"
+        "TC_001.02.02 | Pet > {petId}> PUT 'Update an existing pet. Data contains id'"
     )
     def test_put_update_pet(self, id, put_data, headers):
         """This test used parametrize fixture here, 3 tests will run.
-        Update a pet by id,
-        checks if the pet's name have been updated"""
+        Update pet name by id using PUT method,
+        checks that the pet's name has been updated"""
         status, result = pet.put_update_pet(put_data, headers)
         assert status == 200
         status, result = pet.get_pet_by_id(id)
         assert result["name"] == put_data["name"]
 
+    @allure.feature("TS_001.04.00 | Pet > {petId}")
+    @allure.story(
+        "TC_001.02.03 | Pet > {petId}> PUT 'Update an existing pet. Data does not contain id'"
+    )
+    def test_put_update_pet_without_id(self, id, put_data_without_id, headers):
+        """This test used parametrize fixture here, 3 tests will run.
+        Update pet name by id using PUT method,
+        checks that the pet's name has been updated"""
+        status, result = pet.put_update_pet(put_data_without_id, headers)
+        assert status == 200
+        name = result["name"]
+        status, result = pet.get_pet_by_id(id)
+        assert result["name"] == put_data_without_id["name"]
+
     def test_delete_pet(self, id, random_name, headers):
+
         status, result = pet.get_pet_by_id(id)
         if status != 200:
             data = {"id": id, "name": random_name, "status": "available"}
