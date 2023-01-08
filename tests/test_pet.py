@@ -224,13 +224,13 @@ class TestPets:
     @allure.story(
         "TC_001.02.03 | Pet > {petId}> PUT 'Update an existing pet. Data does not contain id'"
     )
-    def test_put_update_pet_without_id(self, id, put_data_without_id, headers):
+    def test_put_update_pet_without_id(self, put_data_without_id, headers):
         """This test used parametrize fixture here, 3 tests will run.
-        Update pet name by id using PUT method,
+        Update pet name by name and status using PUT method,
         checks that the pet's name has been updated"""
         status, result = pet.put_update_pet(put_data_without_id, headers)
         assert status == 200
-        name = result["name"]
+        id = result["id"]
         status, result = pet.get_pet_by_id(id)
         assert result["name"] == put_data_without_id["name"]
 
