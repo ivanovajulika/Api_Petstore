@@ -21,10 +21,10 @@ ___
 > ***Do not forget to install Docker Desktop***
 
 ### **Docker commands for your terminal**
-    -docker build -t image_name .(for example: docker build -t api_pytest_runner .)
+    docker build -t image_name .(for example: docker build -t api_pytest_runner .)
 > ***This command create an image based on a dockerfile***
 
-    -docker run image_name(for example: docker run --rm api_pytest_runner)
+    docker run image_name(for example: docker run --rm api_pytest_runner)
 > ***This command creates and runs a container based on an image. 
 All tests will be run in a container. The container will be deleted after the end of the tests.***
 
