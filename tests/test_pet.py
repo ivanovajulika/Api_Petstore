@@ -91,7 +91,7 @@ class TestPets:
     @pytest.mark.parametrize(
         "status",
         [
-            pytest.param('', marks=pytest.mark.xfail(reason="status is empty")),
+            pytest.param("", marks=pytest.mark.xfail(reason="status is empty")),
             "@",
             "   ",
             "beautifully",
@@ -144,7 +144,7 @@ class TestPets:
             "invalid_negative_integer",
             "invalid_whitespace_integer",
             "invalid_symbols",
-            "invalid_very_long_name"
+            "invalid_very_long_name",
         ],
     )
     @allure.feature("TS_001.04.00 | Pet > {petId}")
@@ -234,8 +234,20 @@ class TestPets:
         status, result = pet.get_pet_by_id(id)
         assert result["name"] == put_data_without_id["name"]
 
-    def test_delete_pet(self, id, random_name, headers):
+    @allure.feature("TS_001.04.00 | Pet > {petId}")
+    @allure.story(
+        "TC_001.02.04 | Pet > {petId}> PUT 'Update an existing pet. Data contains invalid id'"
+    )
+    @pytest.mark.xfail
+    def test_put_update_pet_invalid_id(self, put_data_invalid_id, headers):
+        """This test used parametrize fixture here, 3 tests will run.
+        Update pet name by invalid id using PUT method,
+        checks that the pet's name has been updated"""
+        status, result = pet.put_update_pet(put_data_invalid_id, headers)
+        assert status == 400
+        """Invalid ID supplied"""
 
+    def test_delete_pet(self, id, random_name, headers):
         status, result = pet.get_pet_by_id(id)
         if status != 200:
             data = {"id": id, "name": random_name, "status": "available"}
@@ -245,6 +257,7 @@ class TestPets:
         assert int(result["message"]) == id
         status, result = pet.get_pet_by_id(id)
         assert status == 404
+        """Pet not found"""
 
     def test_uploads_image(self, id, random_name, headers, photo="picture/34566.jpg"):
         status, result = pet.get_pet_by_id(id)

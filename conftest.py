@@ -59,6 +59,11 @@ def put_data_without_id(random_name, request):
     return {"name": random_name, "status": request.param}
 
 
+@pytest.fixture(params=["available", "pending", "sold"])
+def put_data_invalid_id(random_name, request):
+    return {"id": "string", "name": random_name, "status": request.param}
+
+
 @pytest.fixture
 def headers():
     return {"accept": "application/json", "Content-Type": "application/json"}
