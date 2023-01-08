@@ -21,10 +21,10 @@ ___
 > ***Do not forget to install Docker Desktop***
 
 ### **Docker commands for your terminal**
-    -docker build -t image_name .(for example: docker build -t api_pytest_runner .)
+    docker build -t image_name .(for example: docker build -t api_pytest_runner .)
 > ***This command create an image based on a dockerfile***
 
-    -docker run image_name(for example: docker run --rm api_pytest_runner)
+    docker run image_name(for example: docker run --rm api_pytest_runner)
 > ***This command creates and runs a container based on an image. 
 All tests will be run in a container. The container will be deleted after the end of the tests.***
 
@@ -93,7 +93,8 @@ ___
 ## Useful links <a name="some-links"></a>
 
 [![Python](https://img.shields.io/badge/-Python-464646?style=flat-square&logo=Python)](https://www.python.org/)
-[![Pytest](https://img.shields.io/badge/-pytest-464646?style=flat-square&logo=pytest)](https://docs.pytest.org/en/7.1.x/contents.html)
+[![Pytest](https://img.shields.io/badge/-Pytest-464646?style=flat-square&logo=pytest)](https://docs.pytest.org/en/7.1.x/contents.html)
 [![Allure](https://img.shields.io/badge/-Allure-464646?style=flat-square&logo=Allure)](http://allure.qatools.ru/)
+[![Docker](https://img.shields.io/badge/Docker--464646?style=flat-square&logo=Docker)](https://docs.docker.com/)
 [![GitHub%20Actions](https://img.shields.io/badge/-GitHub%20Actions-464646?style=flat-square&logo=GitHub%20actions)](https://github.com/features/actions/)
 [![GitHub%20Pages](https://img.shields.io/badge/-GitHub%20Pages-464646?style=flat-square&logo=GitHub%20Pages)](https://pages.github.com/)

@@ -85,6 +85,7 @@ class Pet:
         response = requests.post(f"{url}/pet/{id}/uploadImage", headers, files=files)
         status = response.status_code
         result = response.json()
+        logging.info(f"{response.status_code} => {response.ok} ")
         with allure.step(f"POST request from url {response.request.path_url}"):
             return status, result
 
