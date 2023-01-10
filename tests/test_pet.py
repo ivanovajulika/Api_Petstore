@@ -1,3 +1,5 @@
+import logging
+
 from requests import JSONDecodeError
 from api import Pet
 import pytest
@@ -5,6 +7,7 @@ import allure
 import os
 import random
 import string
+import json
 
 pet = Pet()
 

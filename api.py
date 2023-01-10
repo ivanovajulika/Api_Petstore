@@ -7,6 +7,15 @@ import logging
 url = "https://petstore.swagger.io/v2"
 
 
+def validate_json(data):
+    try:
+        loaded = json.loads(data)
+    except ValueError as e:
+        logging.error(e)
+        return False
+    return True
+
+
 class Pet:
     """Class Pet Methods"""
 
@@ -17,6 +26,8 @@ class Pet:
         """GET/pet/{petId} Find pet by ID"""
         response = requests.get(f"{url}/pet/{id}")
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
@@ -26,6 +37,8 @@ class Pet:
         """GET/pet/findByStatus Finds Pets by status"""
         response = requests.get(f"{url}/pet/findByStatus?status={params}")
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
@@ -35,6 +48,8 @@ class Pet:
         """POST/pet/{petId} Updates a pet in the store with form data"""
         response = requests.post(f"{url}/pet/{id}", data=data)
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
@@ -44,6 +59,8 @@ class Pet:
         """PUT/pet Update an existing pet"""
         response = requests.post(f"{url}/pet", data=json.dumps(data), headers=headers)
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"PUT request from url {response.request.path_url}"):
@@ -53,6 +70,8 @@ class Pet:
         """POST/pet Add a new pet to the store"""
         response = requests.post(f"{url}/pet", data=json.dumps(data), headers=headers)
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
@@ -62,6 +81,8 @@ class Pet:
         """DELETE/pet/{petId} Deletes a pet"""
         response = requests.delete(f"{url}/pet/{id}", headers=headers)
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"DELETE request from url {response.request.path_url}"):
@@ -75,6 +96,8 @@ class Pet:
         }
         response = requests.post(f"{url}/pet/{id}/uploadImage", files=files)
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok} ")
         with allure.step(f"POST request from url {response.request.path_url}"):
@@ -84,6 +107,8 @@ class Pet:
         """POST/pet/{petId}/uploadImage uploads an image"""
         response = requests.post(f"{url}/pet/{id}/uploadImage", headers, files=files)
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok} ")
         with allure.step(f"POST request from url {response.request.path_url}"):
@@ -100,6 +125,8 @@ class Store:
         """GET/store/inventory Returns pet inventories by status"""
         response = requests.get(f"{url}/store/inventory")
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
@@ -111,6 +138,8 @@ class Store:
             f"{url}/store/order", data=json.dumps(data), headers=headers
         )
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
@@ -120,6 +149,8 @@ class Store:
         """GET/store/order/{orderId} Find order by ID"""
         response = requests.get(f"{url}/store/order/{id}")
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
@@ -129,6 +160,8 @@ class Store:
         """DELETE/store/order/{orderId} Delete order by ID"""
         response = requests.delete(f"{url}/store/order/{id}", headers=headers)
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"DELETE request from url {response.request.path_url}"):
@@ -145,6 +178,8 @@ class User:
         """POST/user Create user"""
         response = requests.post(f"{url}/user", data=json.dumps(data), headers=headers)
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
@@ -154,6 +189,8 @@ class User:
         """GET/user/{username} Find user by username"""
         response = requests.get(f"{url}/user/{username}")
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
@@ -163,6 +200,8 @@ class User:
         """DELETE/user/{username} Delete user by username"""
         response = requests.delete(f"{url}/user/{username}", headers=headers)
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"DELETE request from url {response.request.path_url}"):
@@ -174,6 +213,8 @@ class User:
             f"{url}/user/{username}", data=json.dumps(data), headers=headers
         )
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"DELETE request from url {response.request.path_url}"):
@@ -183,6 +224,8 @@ class User:
         """GET/user/login"""
         response = requests.get(f"{url}/user/login", params=params, headers=headers)
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
@@ -192,6 +235,8 @@ class User:
         """GET/user/login"""
         response = requests.get(f"{url}/user/logout", headers=headers)
         status = response.status_code
+        data = response.content
+        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
