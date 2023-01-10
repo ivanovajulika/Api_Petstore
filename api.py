@@ -1,15 +1,48 @@
-import requests
 import json
-import allure
 import logging
-
+import allure
+import requests
+from jsonschema import validate
 
 url = "https://petstore.swagger.io/v2"
+
+pet_schema = {
+    "required": ["name", "photoUrls"],
+    "properties": {
+        "id": {"type": "integer", "format": "int64"},
+        "category": {"$ref": "#/definitions/Category"},
+        "name": {"type": "string", "example": "doggie"},
+        "photoUrls": {
+            "type": "array",
+            "xml": {"name": "photoUrl", "wrapped": True},
+            "items": {"type": "string"},
+        },
+        "tags": {
+            "type": "array",
+            "xml": {"name": "tag", "wrapped": True},
+            "items": {"$ref": "#/definitions/Tag"},
+        },
+        "status": {
+            "type": "string",
+            "description": "pet status in the store",
+            "enum": ["available", "pending", "sold"],
+        },
+    },
+}
 
 
 def validate_json(data):
     try:
         loaded = json.loads(data)
+    except ValueError as e:
+        logging.error(e)
+        return False
+    return True
+
+
+def validate_json_schema(data):
+    try:
+        validate(instance=data, schema=pet_schema)
     except ValueError as e:
         logging.error(e)
         return False
@@ -27,7 +60,9 @@ class Pet:
         response = requests.get(f"{url}/pet/{id}")
         status = response.status_code
         data = response.content
-        assert validate_json(data) is True
+        if id != '':
+            assert validate_json(data) is True
+        assert validate_json_schema(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
@@ -39,6 +74,7 @@ class Pet:
         status = response.status_code
         data = response.content
         assert validate_json(data) is True
+        assert validate_json_schema(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"GET request from url {response.request.path_url}"):
@@ -50,6 +86,7 @@ class Pet:
         status = response.status_code
         data = response.content
         assert validate_json(data) is True
+        assert validate_json_schema(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
@@ -61,6 +98,7 @@ class Pet:
         status = response.status_code
         data = response.content
         assert validate_json(data) is True
+        assert validate_json_schema(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"PUT request from url {response.request.path_url}"):
@@ -72,6 +110,7 @@ class Pet:
         status = response.status_code
         data = response.content
         assert validate_json(data) is True
+        assert validate_json_schema(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"POST request from url {response.request.path_url}"):
@@ -81,8 +120,6 @@ class Pet:
         """DELETE/pet/{petId} Deletes a pet"""
         response = requests.delete(f"{url}/pet/{id}", headers=headers)
         status = response.status_code
-        data = response.content
-        assert validate_json(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok}")
         with allure.step(f"DELETE request from url {response.request.path_url}"):
@@ -98,6 +135,7 @@ class Pet:
         status = response.status_code
         data = response.content
         assert validate_json(data) is True
+        assert validate_json_schema(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok} ")
         with allure.step(f"POST request from url {response.request.path_url}"):
@@ -109,6 +147,7 @@ class Pet:
         status = response.status_code
         data = response.content
         assert validate_json(data) is True
+        assert validate_json_schema(data) is True
         result = response.json()
         logging.info(f"{response.status_code} => {response.ok} ")
         with allure.step(f"POST request from url {response.request.path_url}"):

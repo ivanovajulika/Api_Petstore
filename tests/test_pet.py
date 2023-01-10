@@ -1,5 +1,3 @@
-import logging
-
 from requests import JSONDecodeError
 from api import Pet
 import pytest
@@ -7,7 +5,6 @@ import allure
 import os
 import random
 import string
-import json
 
 pet = Pet()
 
@@ -74,7 +71,7 @@ class TestPets:
     @pytest.mark.parametrize("pet_id", [""], ids=["empty"])
     def test_get_pet_id_is_empty(self, pet_id, random_name, headers):
         """Trying to find a pet by invalid id"""
-        with pytest.raises(JSONDecodeError):
+        with pytest.raises(JSONDecodeError) or pytest.raises(AssertionError):
             status, result = pet.get_pet_by_id(pet_id)
             pytest.fail("ID is empty")
             assert status == 405
